@@ -1,0 +1,32 @@
+<div id="home_container">
+    <section id="add_question">
+        <h3>Add a question</h3>
+        <form action="/questions/create" method="post">
+            <div>
+                <label for="name">Question Name</label>
+                <input type="text" name="name" id="name" placeholder="Write question name" required>
+            </div>
+            <div>
+                <label for="link">Question Link</label>
+                <input type="text" name="link" id="link" placeholder="Add question link here.." required>
+            </div>
+            <div>
+                <label for="category">Choose Category</label>
+                <select name="category" id="category">
+                    <option value="SOLVED">SOLVED</option>
+                    <option value="UNSOLVED">UNSOLVED</option>
+                    <option value="RETRY">RETRY</option>
+                </select>
+            </div>
+            <div>
+                <label for="deadline">Choose Deadline</label>
+                <input type="date" id="deadline" name="deadline">
+            </div>
+            <div>
+                <label for="desc">Description</label>
+                <textarea name="description" id="desc" cols="30" rows="3"></textarea>
+            </div>
+            <input type="submit" value="Add Question">
+        </form>
+    </section>
+</div>
