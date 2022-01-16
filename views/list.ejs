@@ -5,7 +5,8 @@
         <% for(ques of questions){ %>
             <li>
                 <h4><a href="<%= ques.link %> " target="_blank"><%= ques.name %> </a></h4>
-                <h4>Status: </h4> <%= ques.category %>
+                <h4>Topic: <%= ques.topic %> </h4>
+                <h4>Status: </h4> <%= ques.status %>
                 <h4>Deadline: </h4> <%= ques.deadline %>
                 <h4>Description: </h4> <%= ques.description %>  
             </li>

@@ -11,8 +11,12 @@
                 <input type="text" name="link" id="link" placeholder="Add question link here.." required>
             </div>
             <div>
-                <label for="category">Choose Category</label>
-                <select name="category" id="category">
+                <label for="topic">Topic</label>
+                <input type="text" name="topic" id="topic" placeholder="Add question topic here.." required>
+            </div>
+            <div>
+                <label for="status">Choose Status</label>
+                <select name="status" id="status">
                     <option value="SOLVED">SOLVED</option>
                     <option value="UNSOLVED">UNSOLVED</option>
                     <option value="RETRY">RETRY</option>
@@ -30,3 +34,13 @@
         </form>
     </section>
 </div>
+
+
+<% if(locals.user){ %> 
+    <h2><a href="/users/profile/<%= locals.user.id %> ">Profile</a></h2>
+    <h3><a href="/users/sign-out">Sign Out</a></h3>
+<% }else{ %> 
+    <h3><a href="/users/signin">SignIn</a></h3>
+    <h3><a href="/users/signup">SignUp</a></h3>
+<% } %> 
+

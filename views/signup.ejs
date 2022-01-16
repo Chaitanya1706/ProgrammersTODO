@@ -1,4 +1,4 @@
-<h1>SignUp</h1>
+<!-- <h1>SignUp</h1>
 
 <form action="/users/create" method="post">
     <input type="text" placeholder="Username" required name="username" id="name">
@@ -8,4 +8,59 @@
     <input type="password" placeholder="confirm password" required name="confirm_password" id="password">
     
     <button type="submit">SignUp</button>
-</form>
+</form> -->
+
+
+<link rel="stylesheet" href="/css/login.css">
+<div class="cont_principal">
+    <div class="cont_centrar">
+        <div class="cont_login">
+
+            <form action="/users/create" method="post">
+                <div class="cont_tabs_login">
+                    <div class="cont_tabs_login">
+                        <ul class='ul_tabs'>
+                            <li><a href="./signin">SIGN IN</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                            <li class="active"><a href="./signup">SIGN UP</a><span class="linea_bajo_nom"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont_text_inputs">
+
+                        <input type="text" class="input_form_sign d_block active_inp" placeholder="USERNAME" required
+                            name="username">
+
+
+                        <input type="email" class="input_form_sign d_block active_inp" placeholder="EMAIL" required
+                            name="email" id="email">
+
+                        <input type="text" class="input_form_sign d_block active_inp" placeholder="EDUCATION" required
+                            name="education">
+
+                        <!-- <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL"
+                        name="emauil_us" /> -->
+
+                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
+                            required name="password" id="password">
+
+                        <input type="password" class="input_form_sign d_block  active_inp"
+                            placeholder="CONFIRM PASSWORD" name="confirm_password" />
+
+
+                        <a href="#" class="link_forgot_pass d_block">Forgot Password ?</a>
+
+                    </div>
+                    <div class="cont_btn">
+                        <input type="submit" onclick="alert()" class="btn_sign" value='SIGN IN' />
+
+                    </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

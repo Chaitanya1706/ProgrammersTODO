@@ -1,7 +1,19 @@
 const Question = require('../models/question');
 
+module.exports.addQuestion = function(req,res){
+    res.render('add_question',{
+        title : 'Add Question'
+    })
+}
+
+module.exports.todo = function(req,res){
+    res.render('todo',{
+        title : 'TODO'
+    })
+}
+
 module.exports.create = function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     Question.create(req.body,function(err,question){
         if(err){
             console.log('error in adding question',err);

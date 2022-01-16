@@ -1,7 +1,56 @@
-<h1>SignIn</h1>
+<!-- <h1>SignIn</h1>
 
 <form action="/users/create-session" method="post">
     <input type="email" placeholder="abc@gmail.com" required name="email" id="email">
     <input type="password" placeholder="password" required name="password" id="password">
     <button type="submit">SigIn</button>
-</form>
+</form> -->
+<link rel="stylesheet" href="/css/login.css">
+<div class="cont_principal">
+    <div class="cont_centrar">
+        <div class="cont_login">
+
+            <form action="/users/create-session" method="post">
+                <div class="cont_tabs_login">
+                    <div class="cont_tabs_login">
+                        <ul class='ul_tabs'>
+                            <li class="active"><a href="./signin">SIGN IN</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                            <li><a href="./signup">SIGN UP</a><span class="linea_bajo_nom"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont_text_inputs">
+
+
+
+
+                        <input type="email" class="input_form_sign d_block active_inp" placeholder="EMAIL" required
+                            name="email" id="email">
+
+                        <!-- <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL"
+                        name="emauil_us" /> -->
+
+                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
+                            required name="password" id="password">
+
+                        <!-- <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
+                        name="pass_us" /> -->
+
+
+                        <a href="#" class="link_forgot_pass d_block">Forgot Password ?</a>
+
+                    </div>
+                    <div class="cont_btn">
+                        <input type="submit" class="btn_sign" value='SIGN IN' />
+
+                    </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
