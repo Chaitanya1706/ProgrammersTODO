@@ -12,55 +12,74 @@
 
 
 <link rel="stylesheet" href="/css/login.css">
-<div class="cont_principal">
-    <div class="cont_centrar">
-        <div class="cont_login">
-
-            <form action="/users/create" method="post">
-                <div class="cont_tabs_login">
-                    <div class="cont_tabs_login">
-                        <ul class='ul_tabs'>
-                            <li><a href="./signin">SIGN IN</a>
-                                <span class="linea_bajo_nom"></span>
-                            </li>
-                            <li class="active"><a href="./signup">SIGN UP</a><span class="linea_bajo_nom"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cont_text_inputs">
-
-                        <input type="text" class="input_form_sign d_block active_inp" placeholder="USERNAME" required
-                            name="username">
 
 
-                        <input type="email" class="input_form_sign d_block active_inp" placeholder="EMAIL" required
-                            name="email" id="email">
+<!-- <h1>SignIn</h1>
 
-                        <input type="text" class="input_form_sign d_block active_inp" placeholder="EDUCATION" required
-                            name="education">
+<form action="/users/create-session" method="post">
+    <input type="email" placeholder="abc@gmail.com" required name="email" id="email">
+    <input type="password" placeholder="password" required name="password" id="password">
+    <button type="submit">SigIn</button>
+</form> -->
+<link rel="stylesheet" href="/css/login.css">
 
-                        <!-- <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL"
-                        name="emauil_us" /> -->
+<div class="container">
+    <!-- code here -->
+    <div class="card">
+        <!-- <div class="card-image">
+            <h2 class="card-heading">
+                Get started
+                <small>Let us create your account</small>
+            </h2>
+        </div> -->
 
-                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
-                            required name="password" id="password">
+        <form action="/users/create" method="post">
 
-                        <input type="password" class="input_form_sign d_block  active_inp"
-                            placeholder="CONFIRM PASSWORD" name="confirm_password" />
+            <div class="input">
+
+                <input type="text" class="input-field" required name="username" id="username">
 
 
-                        <a href="#" class="link_forgot_pass d_block">Forgot Password ?</a>
+                <label class="input-label">UserName</label>
+            </div>
+            <div class="input">
 
-                    </div>
-                    <div class="cont_btn">
-                        <input type="submit" class="btn_sign" value='SIGN IN' />
+                <input type="email" class="input-field" required name="email" id="email">
 
-                    </div>
 
-            </form>
-        </div>
+                <label class="input-label">Email</label>
+            </div>
+            <div class="input">
+
+                <input type="text" class="input-field" required name="education" id="education">
+
+
+                <label class="input-label">Education</label>
+            </div>
+
+
+
+            <div class="input">
+
+
+                <input type="password" class="input-field" required name="password" id="password">
+
+
+                <label class="input-label">Password</label>
+            </div>
+            <div class="input">
+
+
+                <input type="password" class="input-field" required name="confirm_password" id="password">
+
+
+                <label class="input-label">Confirm Password</label>
+            </div>
+
+            <div class="action">
+                <button class="action-button">Get started</button>
+            </div>
+        </form>
 
     </div>
-
-
 </div>
