@@ -1,23 +1,19 @@
-body{
-    color: #6F8BA4;
-    margin-top:20px;
-}
+
 .section {
-    padding: 100px 0;
-    position: relative;
+    padding: 60px 0;       
 }
-.gray-bg {
-    background-color: #f5f5f5;
+.about-top{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;  
 }
-img {
-    max-width: 100%;
-}
-img {
-    vertical-align: middle;
-    border-style: none;
-}
+
+
 /* About Me 
 ---------------------*/
+.about-text{
+  margin-top: 40px;
+}
 .about-text h3 {
   font-size: 45px;
   font-weight: 700;
@@ -39,7 +35,8 @@ img {
 }
 .about-text p {
   font-size: 18px;
-  max-width: 450px;
+  max-width: 600px;
+  
 }
 .about-text p mark {
   font-weight: 600;
@@ -58,6 +55,7 @@ img {
   width: 88px;
   margin: 0;
   position: relative;
+  
 }
 .about-list label:after {
   content: "";
@@ -79,6 +77,7 @@ img {
 .about-list p {
   margin: 0;
   font-size: 15px;
+  color: #333333;
 }
 
 @media (max-width: 991px) {
@@ -87,36 +86,34 @@ img {
   }
 }
 
-.about-section .counter {
+.counter {
+ 
   padding: 22px 20px;
-  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+
 }
-.about-section .counter .count-data {
+.counter .count-data {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.about-section .counter .count {
+.counter .count {
   font-weight: 700;
   color: #20247b;
   margin: 0 0 5px;
 }
-.about-section .counter p {
+.counter p {
   font-weight: 600;
   margin: 0;
 }
-mark {
-    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
-    background-position: 0 bottom;
-    background-color: transparent;
-    padding: 0;
-    color: currentColor;
-}
+
 .theme-color {
-    color: #fc5356;
+    color: #18bc9c;
 }
 .dark-color {
     color: #20247b;

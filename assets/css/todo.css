@@ -1,7 +1,4 @@
-body{
-    margin-top:20px;
-    background:#eee;
-}
+
 .box.box-aqua {
     border-top-color: #00c0ef !important;
 }
@@ -98,4 +95,23 @@ body{
     -webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid transparent;
+}
+.text{
+    font-size: 18px;
+}
+.tools{
+    font-size: 25px;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    
+}
+.hanle{
+    margin-right: 20px;
+}
+.text{
+    margin-right: 20px;
+    margin-left: 20px;
 }
