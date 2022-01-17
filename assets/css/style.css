@@ -1,4 +1,20 @@
 
+:root {
+    --color-bg-primary: #d0d6df;
+    --color-bg-primary-offset: #f1f3f7;
+    --color-bg-secondary: #fff;
+    --color-text-primary: #3a3c42;
+    --color-text-primary-offset: #898c94;
+    --color-orange: #FF6347;
+    --color-green: #228B22;
+    --color-purple: #9665c4;
+    --color-black: var(--color-text-primary);
+    --color-red: #d92027;
+    --color-black: #000;
+    --internal-light-dark: #f00;
+  
+  }
+
 body{
     font-family: Roboto;
 }
@@ -57,7 +73,7 @@ body{
     width: 100%;
     display: flex;    
     justify-content: flex-end;
-    font-size:20px;    
+    font-size:16px;    
 }
 .collapse ul {
     float: right;
@@ -71,7 +87,29 @@ body{
     height: 50px    
 }
 
+.navbar{
+    display: flex;
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
+
+}
+
+
+.navbar-nav .nav-item:hover {
+    background-color: var(--color-bg-primary-offset);
+  }
+
+  .navbar-nav .navbar{ -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+    .btn:hover, .btn:focus, .btn:active:focus {
+      outline: 0 none;}
+
 .navbar-nav .active {
     border: 0px;
-    border-bottom: 2px solid red;
+    
+    border-bottom: 2px solid #0c0f15;    
+    color: black;
+    transform: scale(1.1);
 }
