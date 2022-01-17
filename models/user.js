@@ -15,7 +15,13 @@ const userSchema = new mongoose.Schema({
     },
     education : {
         type : String
-    }
+    },
+    questions : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Question'
+        } 
+    ]
 },
 {
     timestamps : true

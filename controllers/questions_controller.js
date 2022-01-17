@@ -1,4 +1,5 @@
 const Question = require('../models/question');
+const User = require('../models/user');
 
 module.exports.addQuestion = function(req,res){
     res.render('add_question',{
@@ -14,29 +15,40 @@ module.exports.todo = function(req,res){
     })
 }
 
-module.exports.create = function(req,res){
+module.exports.create = async function(req,res){
     // console.log(req.body);
-    Question.create(req.body,function(err,question){
-        if(err){
-            console.log('error in adding question',err);
-            return;
-        }
+    try{
+        const question = await Question.create(req.body)
+
+        const user = await User.findById(req.user.id);
+        user.questions.unshift(question.id);
+
         return res.redirect('/questions/view');
-    })
+
+    }catch(err){
+        console.log('Error!!',err);
+    }
+    
+
 }
 
-module.exports.viewList = function(req,res){
-    Question.find({},function(err,questions){
-        if(err){
-            console.log('error in finding questions',err);
-            return;
-        }
+module.exports.viewList = async function(req,res){
+    try{
+        // const question = await Question.find({})
+        const user = await User.findById(req.user.id)
+        .populate('questions').select("-password")
+        console.log(user);
+        console.log("***",user.questions);
+        console.log(typeof(user.questions));
         return res.render('list',{
             title : 'List',
             page_name : 'questions',
-            questions : questions
+            questions : user.questions
         })
-    })
+    }catch(err){
+        console.log('error!',err);
+    }
+    
 }
 
 module.exports.destroy = async function(req,res){
