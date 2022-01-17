@@ -1,6 +1,10 @@
 body{
    background-color: #e3e8ee;
 }
+form{
+  margin: 0;
+  padding: 0;
+}
 .widget-26 {
   color: #3c4142;
   font-weight: 400;
@@ -23,7 +27,7 @@ body{
 .widget-26 .widget-26-job-title a {
   font-weight: 400;
   font-size: 0.875rem;
-  color: #00a699 !important;  
+  color: #3c4142;
   line-height: 1.5;
 }
 
@@ -150,6 +154,19 @@ body{
   padding: 1rem;
   height: 100%;
   font-size: 1rem;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+.search-form input:focus{
+ 
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+  outline: none;
+ border-width: 1px;
+ border-style: solid;
+  border-color: -webkit-linear-gradient(to right, #363795, #005c97);
+  
 }
 
 .search-form select {
@@ -158,21 +175,36 @@ body{
   padding: 1rem;
   height: 100%;
   font-size: 1rem;
+  border: 1px solid transparent;
+ 
 }
 
 .search-form select:focus {
-  border: 0;
+  
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+  outline: none;
+ 
 }
 
 .search-form button {
   height: 100%;
-  width: 100%;
+  width: 80%;
   font-size: 1rem;
 }
 
 .search-form button svg {
   width: 24px;
   height: 24px;
+}
+.search-form button:focus{
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+  outline: none;
+ border-width: 1px;
+ border-style: solid;
 }
 
 .search-body {
