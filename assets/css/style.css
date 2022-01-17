@@ -34,7 +34,7 @@ body{
 
 .shd{
     box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
-  }
+}
   
 .bg-c-blue {
     background: linear-gradient(45deg,#4099ff,#73b4ff);
@@ -82,8 +82,7 @@ body{
     margin-left: 10px;
 }
 .collapse ul li a{        
-        padding-bottom: 2px;  
-        
+    padding-bottom: 2px;          
 }
     
 .companylogo{
@@ -94,16 +93,11 @@ body{
 .navbar{
     display: flex;
   background-color: var(--color-bg-secondary);
-  color: linear-gradient(to right, #005c97, #363795);
+  
   box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
 }
 
 
-
-.navbar-nav .nav-item:hover {
-    color: linear-gradient(to right, #005c97, #363795);
-    background-color: var(--color-bg-primary-offset);
-  }
 
 .navbar-nav .nav-item{ 
       -webkit-transition: all 0.3s ease 0s;
@@ -115,12 +109,20 @@ body{
     
 .navbar-nav .active {
     border: 0px;
-    border-bottom: 2px solid #f9423a;    
-    font-weight: 500;
-    color: linear-gradient(to right, #005c97, #363795) !important;
+    font-weight: 500;    
     transform: scale(1.1);
+    border-bottom: 2px solid #f9423a;    
+    color: linear-gradient(to right, #005c97, #363795);
+}
+.nav-link{
+    color: gree !important;
 }
 
+
+
+.navbar-nav .nav-item:hover {
+    background-color: var(--color-bg-primary-offset);
+}
 
 
 .text_grad_1 {
@@ -187,6 +189,3 @@ body{
     background-color: #00a699 !important;
   }
   
-  ul.nav-grp-link {
-    margin-bottom: 0px !important;
-  }
