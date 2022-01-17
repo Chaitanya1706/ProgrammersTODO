@@ -203,8 +203,9 @@ form{
   -webkit-box-shadow: none;
   border: none;
   outline: none;
- border-width: 1px;
- border-style: solid;
+  font-weight: 900;
+  color: #363795;
+  transform: scale(1.2);
 }
 
 .search-body {

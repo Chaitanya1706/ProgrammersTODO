@@ -37,24 +37,39 @@
 
             <div class="input">
 
-                <input type="text" class="input-field" required name="username" id="username">
+                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="text"
+                    class="input-field" required name="username" id="username">
 
 
                 <label class="input-label">UserName</label>
             </div>
             <div class="input">
 
-                <input type="email" class="input-field" required name="email" id="email">
+                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="email"
+                    class="input-field" required name="email" id="email">
 
 
                 <label class="input-label">Email</label>
             </div>
             <div class="input">
 
-                <input type="text" class="input-field" required name="education" id="education">
-
-
+                <input type="text" class="input-field" required name="education" list="education">
                 <label class="input-label">Education</label>
+                <datalist id="education">
+                    <option value="1st sem, 1st year, B.Tech">
+                    <option value="2nd sem, 1st year, B.Tech">
+                    <option value="3rd sem, 2nd year, B.Tech">
+                    <option value="4th sem, 2nd year, B.Tech">
+                    <option value="5th sem, 3rd year, B.Tech">
+                    <option value="6th sem, 3rd year, B.Tech">
+                    <option value="7th sem, 4th year, B.Tech">
+                    <option value="8th sem, 4th year, B.Tech">
+
+
+                </datalist>
+
+
+
             </div>
 
 
@@ -62,7 +77,8 @@
             <div class="input">
 
 
-                <input type="password" class="input-field" required name="password" id="password">
+                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="password"
+                    class="input-field" required name="password" id="password">
 
 
                 <label class="input-label">Password</label>
@@ -70,7 +86,8 @@
             <div class="input">
 
 
-                <input type="password" class="input-field" required name="confirm_password" id="password">
+                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="password"
+                    class="input-field" required name="confirm_password" id="password">
 
 
                 <label class="input-label">Confirm Password</label>
