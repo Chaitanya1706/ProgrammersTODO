@@ -71,7 +71,7 @@ body{
     height: 50px    
 }
 
-.active {
+.navbar-nav .active {
     border: 0px;
     border-bottom: 2px solid red;
 }
