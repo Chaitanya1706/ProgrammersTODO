@@ -23,7 +23,8 @@ body{
 .widget-26 .widget-26-job-title a {
   font-weight: 400;
   font-size: 0.875rem;
-  color: #3c4142;
+  color: #00a699 !important;
+  
   line-height: 1.5;
 }
 
