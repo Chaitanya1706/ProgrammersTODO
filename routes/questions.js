@@ -13,5 +13,7 @@ router.get('/todo',passport.checkAuthentication,questionsController.todo)
 
 router.post('/create',passport.checkAuthentication,questionsController.create);
 
+router.get('/delete/:id',passport.checkAuthentication,questionsController.destroy);
+
 module.exports = router;
 
