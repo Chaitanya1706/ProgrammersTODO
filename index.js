@@ -16,32 +16,32 @@ app.use(cookieParser());
 const MongoStrore = require('connect-mongo');
 
 app.use(session({
-    name : 'TODO',
-    secret : 'secretkeytobechanged',
-    saveUninitialized : false,
-    resave : false,
-    cookie : {
-        maxAge : (1000 * 60 * 100)
+    name: 'TODO',
+    secret: 'secretkeytobechanged',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
     },
-    store : MongoStrore.create(
+    store: MongoStrore.create(
         {
-            mongoUrl : 'mongodb+srv://Chats:wkTnlxjfJG9dmxTP@cluster0.mxmxr.mongodb.net/ProgrammersTODO?retryWrites=true&w=majority',
-            autoRemove : 'disabled'
+            mongoUrl: 'mongodb+srv://Chats:wkTnlxjfJG9dmxTP@cluster0.mxmxr.mongodb.net/ProgrammersTODO?retryWrites=true&w=majority',
+            autoRemove: 'disabled'
         },
-        function(err){
+        function (err) {
             console.log(err || 'connect-mongodb setup ok');
         }
     )
 }))
 
 //setting layout
-app.set('layout extractStyles',true)
-app.set('layout extractScripts',true)
+app.set('layout extractStyles', true)
+app.set('layout extractScripts', true)
 app.use(expressLayouts);
 
 //setup view engine
 app.set('view engine', 'ejs');
-app.set('views','./views');
+app.set('views', './views');
 
 
 // setting up passport with local startegy
@@ -51,16 +51,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser)  // middleware to access the authenticated user from locals for views
 
+function visitor(req, res, next) {
+    console.log(req.ip)
+    console.log(req.path)
+    console.log(req.method)
+
+    next();
+}
+app.use(visitor);
 //setting up flash
 const flash = require('connect-flash');
 app.use(flash());
 
 //use express router
-app.use('/',require('./routes/index'));
+app.use('/', require('./routes/index'));
 
-app.listen(port,function(err){
-    if(err){
+app.listen(port, function (err) {
+    if (err) {
         console.log("Server not setup", err);
     }
-    console.log('Server is up and running at port:',port);
+    console.log('Server is up and running at port:', port);
 })
