@@ -21,8 +21,9 @@ module.exports.create = async function(req,res){
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
-        user.questions.unshift(question.id);
-
+        
+        user.questions.push(question.id);
+        user.save();
         return res.redirect('/questions/view');
 
     }catch(err){
@@ -37,9 +38,7 @@ module.exports.viewList = async function(req,res){
         // const question = await Question.find({})
         const user = await User.findById(req.user.id)
         .populate('questions').select("-password")
-        console.log(user);
-        console.log("***",user.questions);
-        console.log(typeof(user.questions));
+        
         return res.render('list',{
             title : 'List',
             page_name : 'questions',
