@@ -100,22 +100,25 @@ body{
 }
 
 
+
 .navbar-nav .nav-item:hover {
     color: linear-gradient(to right, #005c97, #363795);
     background-color: var(--color-bg-primary-offset);
   }
 
-  .navbar-nav .navbar{ -webkit-transition: all 0.3s ease 0s;
+.navbar-nav .nav-item{ 
+      -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s; }
-    .btn:hover, .btn:focus, .btn:active:focus {
-      outline: 0 none;}
+    transition: all 0.3s ease 0s; 
 
+}
+    
 .navbar-nav .active {
     border: 0px;
     border-bottom: 2px solid #f9423a;    
-    color: black;
+    font-weight: 500;
+    color: linear-gradient(to right, #005c97, #363795) !important;
     transform: scale(1.1);
 }
 
