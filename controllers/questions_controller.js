@@ -2,13 +2,15 @@ const Question = require('../models/question');
 
 module.exports.addQuestion = function(req,res){
     res.render('add_question',{
-        title : 'Add Question'
+        title : 'Add Question',
+        page_name : 'add_ques'
     })
 }
 
 module.exports.todo = function(req,res){
     res.render('todo',{
-        title : 'TODO'
+        title : 'TODO',
+        page_name : 'todo',
     })
 }
 
@@ -31,6 +33,7 @@ module.exports.viewList = function(req,res){
         }
         return res.render('list',{
             title : 'List',
+            page_name : 'questions',
             questions : questions
         })
     })

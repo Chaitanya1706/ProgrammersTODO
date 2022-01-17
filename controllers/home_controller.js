@@ -1,3 +1,4 @@
+const { profile } = require('console');
 const User = require('../models/user')
 
 module.exports.home = function(req,res){
@@ -13,6 +14,7 @@ module.exports.home = function(req,res){
         // console.log(req.user);
         return res.render('user_profile',{
             title : 'Home',
+            page_name : 'profile',
             profile_user : req.user
         })
     }

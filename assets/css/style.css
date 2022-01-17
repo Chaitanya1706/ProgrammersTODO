@@ -71,3 +71,7 @@ body{
     height: 50px    
 }
 
+.active {
+    border: 0px;
+    border-bottom: 2px solid red;
+}

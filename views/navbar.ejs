@@ -15,6 +15,7 @@
         <div class="collapse navbar-collapse" id="hamburgericon">
             <ul class="navbar-nav ml-auto">
                 <% if(locals.user){ %>
+                    <%= locals.page_name %> 
                     <li class="nav-item active"><a class="nav-link" href="/">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="/questions/todo">Todo</a></li>
                     <li class="nav-item"><a class="nav-link" href="/questions/add">Add Questions</a></li>
@@ -25,8 +26,9 @@
                     <% }else{ %>
                         <li class="nav-item"><a class="nav-link" href="/users/signin">Signin</a></li>
                         <li class="nav-item"><a class="nav-link" href="/users/signup">Signup</a></li>
-                        <% } %>
+                    <% } %>
             </ul>
         </div>
     </div>
 </nav>
+

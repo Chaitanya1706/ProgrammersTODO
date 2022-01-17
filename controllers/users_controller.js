@@ -5,6 +5,7 @@ module.exports.profile = function (req, res) {
     User.findById(req.user.id, function (err, user) {
         return res.render('user_profile', {
             title: 'User Profile',
+            page_name : 'profile',
             profile_user: user
         });
     });
@@ -29,7 +30,8 @@ module.exports.signup = function (req, res) {
     }
 
     return res.render('signup', {
-        title: 'sign-up'
+        title: 'sign-up',
+        page_name : "signup",
     })
 }
 
@@ -39,32 +41,30 @@ module.exports.signin = function (req, res) {
         return res.redirect(`/users/profile`);
     }
     return res.render('signin', {
-        title: 'sign-in'
+        title: 'sign-in',
+        page_name : 'signin'
     })
 }
 
-module.exports.create = function (req, res) {
+module.exports.create = async function (req, res) {
     // console.log(req.body);
     if (req.body.password != req.body.confirm_password) {
         return res.redirect('back');
     }
-    console.log(req.body);
-    User.findOne({ email: req.body.email }, function (err, user) {
-        if (err) { console.log('error in finding user', err); return; }
+    // console.log(req.body);
+    try{
+        const user = await User.findOne({ email: req.body.email })
 
         if (!user) {
-            User.create(req.body, function (err, newUser) {
-                if (err) {
-                    console.log('Error in creating a User!', err);
-                    return;
-                }
-                return res.redirect('/users/signin');
-            })
+            await User.create(req.body)
+            return res.redirect('/users/signin');
         } else {
-
             return res.redirect('back');
         }
-    })
+    }catch(err){
+        console.log('ERROR!!',err);
+    }
+    
 
 }
 
