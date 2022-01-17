@@ -78,8 +78,12 @@ body{
 .collapse ul {
     float: right;
 }
+.collapse ul li{
+    margin-left: 10px;
+}
 .collapse ul li a{        
-        padding-bottom: 2px;                    
+        padding-bottom: 2px;  
+        
 }
     
 .companylogo{
@@ -90,12 +94,14 @@ body{
 .navbar{
     display: flex;
   background-color: var(--color-bg-secondary);
+  color: linear-gradient(to right, #005c97, #363795);
   box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
 
 }
 
 
 .navbar-nav .nav-item:hover {
+    color: linear-gradient(to right, #005c97, #363795);
     background-color: var(--color-bg-primary-offset);
   }
 
@@ -108,8 +114,77 @@ body{
 
 .navbar-nav .active {
     border: 0px;
-    
-    border-bottom: 2px solid #0c0f15;    
+    border-bottom: 2px solid #f9423a;    
     color: black;
     transform: scale(1.1);
 }
+
+
+
+.text_grad_1 {
+    color: linear-gradient(to right, #005c97, #363795) !important;
+  }
+  
+  .bg_grad_1 {
+    background: #005c97; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #363795, #005c97);
+    background: linear-gradient(to right, #363795, #005c97);
+  }
+  .text_grad_2 {
+    color: linear-gradient(to right, #3498db, #2c3e50) !important;
+  }
+  
+  .bg_grad_2 {
+    background: #2c3e50; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);
+    background: linear-gradient(to right, #3498db, #2c3e50);
+  }
+  
+  .text_primary_special {
+    color: #002691 !important;
+  }
+  
+  .bg_primary_special {
+    background-color: #1d3557 !important;
+  }
+  
+  .text_blue {
+    color: #023047 !important;
+  }
+  .bg_blue {
+    background-color: #023047 !important;
+  }
+  
+  .text_gray {
+    color: #405166f5;
+  }
+  
+  .text_pink {
+    color: #ff007a !important;
+  }
+  .bg_pink {
+    background-color: #ff007a !important;
+  }
+  
+  .bg_light_blue {
+    background-color: #f5f5ff !important;
+  }
+  
+  .card_bg {
+    background-color: #f5f4f4 !important  ;
+  }
+  .royal_blue {
+    color: #2c53c7;
+  }
+  
+  .text_green_1 {
+    color: #00a699 !important;
+  }
+  
+  .bg_green_1 {
+    background-color: #00a699 !important;
+  }
+  
+  ul.nav-grp-link {
+    margin-bottom: 0px !important;
+  }
