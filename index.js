@@ -52,9 +52,8 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser)  // middleware to access the authenticated user from locals for views
 
 function visitor(req, res, next) {
-    console.log(req.ip)
-    console.log(req.path)
-    console.log(req.method)
+
+    console.log(req.ip, req.path, req.method)
 
     next();
 }

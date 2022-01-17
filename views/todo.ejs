@@ -11,57 +11,42 @@
                     <h3 class="box-title">To Do List</h3>
 
                 </div>
+                <form action="/questions/todo/markdone" method="POST">
+                    <div class="box-body">
+                        <ul class="todo-list ui-sortable">
 
-                <div class="box-body">
-                    <ul class="todo-list ui-sortable">
-                        <li>
+                            <% todo.forEach(function(item,i){%>
+                                <li>
 
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Design a nice theme</span>
-                            <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                                    <input type="checkbox" id="todo-<%=i%>" name="mark[]" value="<%=item._id%>">
+                                    <!-- <input type="checkbox" value="" name=""> -->
+                                    <a href="<%=item.link%>" class="text">
+                                        <%=item.name%>
+                                    </a>
+                                    <small
+                                        class="badge <%- item.status=='UNSOLVED' ? 'bg-info' :item.status=='SOLVED' ? 'bg-success' : 'bg-danger'%>"><i
+                                            class="far fa-clock"></i> 2 mins</small>
 
-                        </li>
-                        <li>
+                                </li>
+                                <%})%>
 
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Make the theme responsive</span>
-                            <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+                        </ul>
+                    </div>
 
-                        </li>
-                        <li>
 
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+                    <% if (todo.length!=0) { %>
 
-                        </li>
-                        <li>
+                        <div class="box-footer clearfix no-border">
+                            <button type="submit" class="btn btn-default">MarkDone</button>
+                        </div>%>
 
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
 
-                        </li>
-                        <li>
+                        <%} else { %>
+                            <h3 class="text-center text_primary_special"> No Work To do </h3>
+                            <% } %>
 
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Check your messages and notifications</span>
-                            <small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                </form>
 
-                        </li>
-                        <li>
-
-                            <input type="checkbox" value="" name="">
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="badge bg-secondary"><i class="fa fa-clock-o"></i> 1 month</small>
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="box-footer clearfix no-border">
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i>Mark
-                        Done</button>
-                </div>
             </div>
         </div>
 

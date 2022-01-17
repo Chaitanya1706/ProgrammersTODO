@@ -54,7 +54,14 @@
                                 <div class="result-header">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="records">Showing question: <b>1-20</b> of <b>200</b> result
+                                            <div class="records">Showing question: <b>1-
+
+                                                    <%=questions.length%>
+
+                                                </b> of <b>
+
+                                                    <%=questions.length%>
+                                                </b> result
                                             </div>
                                         </div>
                                     </div>
@@ -63,9 +70,9 @@
                                     <div class="table-responsive">
                                         <table class="table widget-26">
                                             <tbody>
-                                                
+
                                                 <% for(ques of questions){ %>
-                                                    
+
                                                     <tr>
                                                         <td>
                                                             <div class="widget-26-job-title">
