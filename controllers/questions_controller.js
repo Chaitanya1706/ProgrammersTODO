@@ -38,3 +38,13 @@ module.exports.viewList = function(req,res){
         })
     })
 }
+
+module.exports.destroy = async function(req,res){
+    try{
+        let ques = await Question.findById(req.params.id);
+        ques.remove();
+        return res.redirect('back');
+    }catch(err){
+        console.log('Error',err);
+    }
+}
