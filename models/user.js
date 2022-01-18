@@ -21,7 +21,26 @@ const userSchema = new mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref : 'Question'
         } 
+    ],
+    solved : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Question'
+        } 
+    ],
+    unsolved : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Question'
+        } 
+    ],
+    retry : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Question'
+        } 
     ]
+
 },
 {
     timestamps : true
