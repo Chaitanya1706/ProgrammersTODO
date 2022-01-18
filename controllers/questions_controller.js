@@ -38,15 +38,7 @@ module.exports.todo = async function (req, res) {
     }
 }
 
-async function pickRandom(id) {
 
-
-
-
-
-
-
-}
 module.exports.markdone = async function (req, res) {
 
     const marktodo = req.body;

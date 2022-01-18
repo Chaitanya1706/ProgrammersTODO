@@ -106,9 +106,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-salary">
-                                                            <small class="label label-danger"><i
-                                                                    class="fa fa-clock-o"></i>
-                                                                <%= ques.lastsolve || '2 days ago' %>
+                                                            <small class="bg-c-green p-1 rounded fw-bold">
+                                                                <i class="fa fa-clock"></i>
+                                                                <%= ques.lastsolve || '2days ago' %>
                                                             </small>
                                                         </div>
                                                     </td>
@@ -142,18 +142,19 @@
                                                     </td>
 
 
-                                                        <td>
-                                                            <div class="widget-26-job-action">
-                                                                <a class="star" href="#">
-                                                                    <i class="far fa-star"></i>
-                                                                </a>
-                                                            
-                                                                <a href="/questions/update/<%= ques.id %>"><i class="fa fa-edit"></i></a>
-                                                                <a href="/questions/delete/<%= ques.id %>"><i
-                                                                        class="far fa-trash-alt"></i></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    <td>
+                                                        <div class="widget-26-job-action">
+                                                            <a class="star" href="#">
+                                                                <i class="far fa-star"></i>
+                                                            </a>
+
+                                                            <a href="/questions/update/<%= ques.id %>"><i
+                                                                    class="fa fa-edit"></i></a>
+                                                            <a href="/questions/delete/<%= ques.id %>"><i
+                                                                    class="far fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
 
 
                                                 <% } %>
