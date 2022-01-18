@@ -6,6 +6,10 @@ form{
   padding: 0;
 }
 
+.table>:not(caption)>*>*{  
+    border-bottom-width: 0px;    
+}
+
 .widget-26 {
 color: #3c4142;
 font-weight: 400;
