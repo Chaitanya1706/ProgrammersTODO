@@ -170,7 +170,7 @@ module.exports.update = async function (req, res) {
         await Question.findByIdAndUpdate(req.params.id, req.body);
 
         req.flash('success','Question Updated Successfully');
-        
+
         return res.redirect('/questions/view');
     } catch (err) {
         req.flash('error',err)
