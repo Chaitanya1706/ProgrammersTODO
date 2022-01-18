@@ -15,6 +15,10 @@
     var date = new Date(deadline);
     document.getElementById("deadline").value = format(date)
 
+    let description = document.getElementById("desc")
+    description.addEventListener("focus", function () {
+        description.setAttribute("rows", 5)
+    })
 
 
 })()
