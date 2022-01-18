@@ -10,20 +10,40 @@ module.exports.addQuestion = function (req, res) {
 
 module.exports.todo = async function (req, res) {
 
-    var now = new Date();
-    const todo = await Question.find({
-        deadline: { $lte: new Date(now) },
-        status: { $in: ["RETRY", "UNSOLVED"] }
-    })
+    if (req.query.q === 'randompick') {
+        let qpick = await pickRandom()
+        res.render('todo', {
+            title: 'TODO',
+            page_name: 'todo',
+            todo: qpick
+        })
+    }
+    else {
+        var now = new Date();
+        const todo = await Question.find({
+            deadline: { $lte: new Date(now) },
+            status: { $in: ["RETRY", "UNSOLVED"] }
+        })
 
 
-    res.render('todo', {
-        title: 'TODO',
-        page_name: 'todo',
-        todo: todo
-    })
+        res.render('todo', {
+            title: 'TODO',
+            page_name: 'todo',
+            todo: todo
+        })
+    }
 }
 
+async function pickRandom(req, res) {
+
+    const questions = await Question.find({
+        status: { $in: ["SOLVED"] }
+    })
+    randomPick = questions.sort(() => Math.random() - Math.random()).slice(0, 2)
+
+    return randomPick;
+
+}
 module.exports.markdone = async function (req, res) {
 
     const marktodo = req.body;
@@ -66,6 +86,8 @@ module.exports.viewList = async function (req, res) {
         // const question = await Question.find({})
         const user = await User.findById(req.user.id)
             .populate('questions').select("-password")
+
+
 
         return res.render('list', {
             title: 'List',
