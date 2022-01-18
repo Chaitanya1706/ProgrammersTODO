@@ -5,22 +5,22 @@
             <form action="/questions/update/<%= ques.id %> " method="post">
                 <div class="col-md-12  mb-3">
                     <label class="form-label" for="name">Question Name</label>
-                    <input class="form-control" type="text" name="name" id="name" value="<%= ques.name %>" placeholder="Write question name"
-                        required>
+                    <input class="form-control" type="text" name="name" id="name" value="<%= ques.name %>"
+                        placeholder="Write question name" required>
 
                 </div>
                 <div class="col-md-12  mb-3">
 
                     <label class="form-label" for="link">Question Link</label>
-                    <input class="form-control" type="url" name="link" id="link" value="<%= ques.link %> " placeholder="Add question link here.."
-                        required>
+                    <input class="form-control" type="url" name="link" id="link" value="<%= ques.link %> "
+                        placeholder="Add question link here.." required>
 
                 </div>
 
                 <div class="col-md-12  mb-3">
                     <label for="topic">Topic</label>
-                    <input type="text" id="topic" class="form-control" value="<%= ques.topic %> " placeholder="Enter Category or Topic"
-                        name="topic">
+                    <input type="text" id="topic" class="form-control" value="<%= ques.topic %> "
+                        placeholder="Enter Category or Topic" name="topic">
                 </div>
 
 
@@ -28,15 +28,16 @@
                     <div class="col-md-6">
                         <label for="status" class="form-label">Question Status </label>
                         <select id="status" class="form-select" name="status" id="status">
-                            <option value= "SOLVED" <%= ques.status === 'SOLVED' && 'selected' %>>SOLVED</option>
-                            <option value="UNSOLVED" <%= ques.status === 'UNSOLVED' && 'selected' %>>UNSOLVED</option>
-                            <option value="RETRY" <%= ques.status === 'RETRY' && 'selected' %>>RETRY</option>
+                            <option value="SOLVED" <%=ques.status==='SOLVED' && 'selected' %>>SOLVED</option>
+                            <option value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED</option>
+                            <option value="RETRY" <%=ques.status==='RETRY' && 'selected' %>>RETRY</option>
                         </select>
 
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="deadline">Deadline </label>
-                        <input type="date" class="form-control" id="deadline" value="<%= ques.deadline %> " name="deadline">
+                        <input type="date" class="form-control" id="deadline" value="<%= ques.deadline %> "
+                            name="deadline">
                     </div>
                 </div>
 
@@ -67,5 +68,5 @@
 
 
 
-
 </div>
+<script src="/js/update.js"></script>

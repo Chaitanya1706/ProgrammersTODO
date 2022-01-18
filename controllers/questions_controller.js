@@ -90,8 +90,6 @@ module.exports.viewList = async function (req, res) {
         const user = await User.findById(req.user.id)
             .populate('questions').select("-password")
 
-
-
         return res.render('list', {
             title: 'List',
             page_name: 'questions',
