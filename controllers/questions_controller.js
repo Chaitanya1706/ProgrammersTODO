@@ -21,7 +21,7 @@ module.exports.create = async function(req,res){
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
-        
+
         user.questions.push(question.id);
         user.save();
         return res.redirect('/questions/view');
@@ -38,7 +38,9 @@ module.exports.viewList = async function(req,res){
         // const question = await Question.find({})
         const user = await User.findById(req.user.id)
         .populate('questions').select("-password")
-        
+        // console.log(user);
+        // console.log("***",user.questions);
+        // console.log(typeof(user.questions));
         return res.render('list',{
             title : 'List',
             page_name : 'questions',
@@ -54,7 +56,34 @@ module.exports.destroy = async function(req,res){
     try{
         let ques = await Question.findById(req.params.id);
         ques.remove();
+        await User.findByIdAndUpdate(req.user.id, {$pull : {questions : req.params.id}})
+
         return res.redirect('back');
+    }catch(err){
+        console.log('Error',err);
+    }
+}
+
+module.exports.updateQuestion = async function(req,res){
+
+    try{
+        // console.log(req);
+        const ques = await Question.findById(req.params.id);
+        // console.log(ques);
+        return res.render('update',{
+            title : 'Update Question',
+            ques : ques
+        })
+    }catch(err){
+        console.log('ERROR!!',err);
+    }
+}
+
+module.exports.update = async function(req,res){
+    try{
+        await Question.findByIdAndUpdate(req.params.id,req.body);
+
+        return res.redirect('/questions/view');
     }catch(err){
         console.log('Error',err);
     }

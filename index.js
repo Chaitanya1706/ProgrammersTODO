@@ -51,14 +51,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser)  // middleware to access the authenticated user from locals for views
 
-function visitor(req, res, next) {
-    console.log(req.ip)
-    console.log(req.path)
-    console.log(req.method)
+// function visitor(req, res, next) {
+//     console.log(req.ip)
+//     console.log(req.path)
+//     console.log(req.method)
 
-    next();
-}
-app.use(visitor);
+//     next();
+// }
+// app.use(visitor);
+
+
 //setting up flash
 const flash = require('connect-flash');
 app.use(flash());
