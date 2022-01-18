@@ -7,6 +7,7 @@ const db = require('./config/mongoose')
 // to parse the body into json format
 app.use(express.urlencoded());
 
+const customMware = require('./config/middleware');
 app.use(express.static('./assets'));
 
 //TODO -> create express-session
@@ -56,9 +57,12 @@ app.use(passport.setAuthenticatedUser)  // middleware to access the authenticate
 //     console.log(req.ip, req.path, req.method)
 // }
 
+// app.use(visitor);
+
 //setting up flash
 const flash = require('connect-flash');
 app.use(flash());
+app.use(customMware.setFlash);
 
 //use express router
 app.use('/', require('./routes/index'));
