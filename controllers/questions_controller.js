@@ -11,11 +11,15 @@ module.exports.addQuestion = function (req, res) {
 module.exports.todo = async function (req, res) {
 
     if (req.query.q === 'randompick') {
-        let qpick = await pickRandom()
+        const user = await User.findById(req.user.id)
+            .populate('questions')
+
+        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, 3)
+
         res.render('todo', {
             title: 'TODO',
             page_name: 'todo',
-            todo: qpick
+            todo: randomPick
         })
     }
     else {
@@ -34,14 +38,13 @@ module.exports.todo = async function (req, res) {
     }
 }
 
-async function pickRandom(req, res) {
+async function pickRandom(id) {
 
-    const questions = await Question.find({
-        status: { $in: ["SOLVED"] }
-    })
-    randomPick = questions.sort(() => Math.random() - Math.random()).slice(0, 2)
 
-    return randomPick;
+
+
+
+
 
 }
 module.exports.markdone = async function (req, res) {
@@ -104,7 +107,7 @@ module.exports.destroy = async function (req, res) {
     try {
         let ques = await Question.findById(req.params.id);
         ques.remove();
-        await User.findByIdAndUpdate(req.user.id, {$pull : {questions : req.params.id}})
+        await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id } })
 
         return res.redirect('back');
     } catch (err) {
@@ -112,28 +115,28 @@ module.exports.destroy = async function (req, res) {
     }
 }
 
-module.exports.updateQuestion = async function(req,res){
+module.exports.updateQuestion = async function (req, res) {
 
-    try{
+    try {
         // console.log(req);
         const ques = await Question.findById(req.params.id);
         // console.log(ques);
-        return res.render('update',{
-            title : 'Update Question',
-            ques : ques
+        return res.render('update', {
+            title: 'Update Question',
+            ques: ques
         })
-    }catch(err){
-        console.log('ERROR!!',err);
+    } catch (err) {
+        console.log('ERROR!!', err);
     }
 }
 
-module.exports.update = async function(req,res){
-    try{
+module.exports.update = async function (req, res) {
+    try {
 
-        await Question.findByIdAndUpdate(req.params.id,req.body);
+        await Question.findByIdAndUpdate(req.params.id, req.body);
 
         return res.redirect('/questions/view');
-    }catch(err){
-        console.log('Error',err);
+    } catch (err) {
+        console.log('Error', err);
     }
 }
