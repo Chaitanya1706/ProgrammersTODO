@@ -9,9 +9,9 @@
                 <div class="box-header ui-sortable-handle" style="cursor: move;">
                     <i class="fa fa-clipboard"></i>
                     <h3 class="d-inline box-title">To Do List</h3>
-                    <p class="d-inline ml-5 text_green_1 badge bg-soft-success ">
+                    <small class="d-inline bg-primary p-1 text-white rounded">
                         <%= new Date().toDateString() %>
-                    </p>
+                    </small>
 
 
                 </div>
@@ -42,12 +42,23 @@
 
                         <div class="box-footer clearfix no-border">
                             <button type="submit" class="btn btn-default">MarkDone</button>
+                            <!-- d-flex justify-content-around float-right -->
                         </div>%>
 
 
                         <%} else { %>
-                            <div class="text_green_1 fs-4 text-center fw-bolder "> No Work For Revision</div>
+
+                            <div class="text_green_1 display-6  text-center fw-bold"> No Work For Revision</div>
                             <% } %>
+                                <div class="p-2">
+                                    <button class="btn btn btn-default text_blue btn-md">
+                                        <a id="pickrandom" class="text-decoration-none" target="_blank"
+                                            href="/questions/todo?q=randompick">
+                                            <i class="fas fa-random"></i>
+                                            Pick Random
+                                        </a>
+                                    </button>
+                                </div>
 
                 </form>
 

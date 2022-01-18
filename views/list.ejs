@@ -53,59 +53,24 @@
                             <div class="search-result">
                                 <div class="result-header">
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="records">Showing question: <b>1-
-
-                                                    <%=questions.length%>
-
-                                                </b> of <b>
-
+                                        <div class="col-lg-10">
+                                            <div class="records">Showing question: <b>1- <%=questions.length%></b> of
+                                                <b>
                                                     <%=questions.length%>
                                                 </b> result
                                             </div>
                                         </div>
+                                        <div class="col-lg-2">
+
+                                            <a id="pickrandom" class="btn btn-default text-primary text-decoration-none"
+                                                target="_blank" href="/questions/todo?q=randompick">
+                                                <i class="fas fa-random"></i> Pick Random
+                                            </a>
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="result-body">
-                                    <div class="table-responsive">
-                                        <table class="table widget-26">
-                                            <tbody>
-
-                                                <% for(ques of questions){ %>
-
-                                                    <tr>
-                                                        <td>
-                                                            <div class="widget-26-job-title">
-                                                                <a href="<%= ques.link %> " target="_blank">
-                                                                    <%= ques.name %>
-                                                                </a>
-
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-info">
-                                                                <p class="type m-0">
-                                                                    <%= ques.topic || "Array" %>
-                                                                </p>
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-salary">
-                                                                <small class="label label-danger"><i
-                                                                        class="fa fa-clock-o"></i>
-                                                                    <%= ques.lastsolve || '2 days ago' %>
-                                                                </small>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="widget-26-job-salary">
-                                                                <p class=""><i class="fa fa-clock-o"></i>
-                                                                    <%= new Date(ques.deadline).toDateString() %>
-                                                                </p>
-                                                            </div>
-                                                        </td>
+                            </div>
 
 
 
@@ -114,67 +79,115 @@
 
 
 
-                                                        <td>
-                                                            <div class="widget-26-job-category  <%- ques.status=='UNSOLVED' ? 'bg-soft-info' :
+                            <div class="result-body">
+                                <div class="table-responsive">
+                                    <table class="table widget-26">
+                                        <tbody>
+
+                                            <% for(ques of questions){ %>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="widget-26-job-title">
+                                                            <a href="<%= ques.link %> " target="_blank">
+                                                                <%= ques.name %>
+                                                            </a>
+
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-info">
+                                                            <p class="type m-0">
+                                                                <%= ques.topic || "Array" %>
+                                                            </p>
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-salary">
+                                                            <small class="label label-danger"><i
+                                                                    class="fa fa-clock-o"></i>
+                                                                <%= ques.lastsolve || '2 days ago' %>
+                                                            </small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-salary">
+                                                            <p class=""><i class="fa fa-clock-o"></i>
+                                                                <%= new Date(ques.deadline).toDateString() %>
+                                                            </p>
+                                                        </div>
+                                                    </td>
+
+
+
+
+
+
+
+
+                                                    <td>
+                                                        <div class="widget-26-job-category  <%- ques.status=='UNSOLVED' ? 'bg-soft-info' :
                                                                 ques.status=='SOLVED' ? 'bg-soft-success' : 'bg-soft-danger'
                                                                 %>">
-                                                                <i class="indicator 
+                                                            <i class="indicator 
                                                                 <%- ques.status=='UNSOLVED' ? 'bg-info' :
                                                                 ques.status=='SOLVED' ? 'bg-success' : 'bg-danger'
                                                                 %>"></i>
-                                                                <span>
-                                                                    <%= ques.status %>
-                                                                </span>
-                                                            </div>
-                                                        </td>
+                                                            <span>
+                                                                <%= ques.status %>
+                                                            </span>
+                                                        </div>
+                                                    </td>
 
 
-                                                        <td>
-                                                            <div class="widget-26-job-action">
-                                                                <a class="star" href="#">
-                                                                    <i class="far fa-star"></i>
-                                                                </a>
+                                                    <td>
+                                                        <div class="widget-26-job-action">
+                                                            <a class="star" href="#">
+                                                                <i class="far fa-star"></i>
+                                                            </a>
 
-                                                                <i class="fa fa-edit"></i>
-                                                                <a href="/questions/delete/<%= ques.id %>"><i
-                                                                        class="far fa-trash-alt"></i></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-
-                                                    <% } %>
+                                                            <i class="fa fa-edit"></i>
+                                                            <a href="/questions/delete/<%= ques.id %>"><i
+                                                                    class="far fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
 
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                <% } %>
+
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <nav class="d-flex justify-content-center">
-                        <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
-                            <li class="page-item">
-                                <a class="page-link no-border" href="#">
-                                    <span aria-hidden="true">«</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
-                            <li class="page-item">
-                                <a class="page-link no-border" href="#">
-                                    <span aria-hidden="true">»</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
+                <nav class="d-flex justify-content-center">
+                    <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                        <li class="page-item">
+                            <a class="page-link no-border" href="#">
+                                <span aria-hidden="true">«</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link no-border" href="#">
+                                <span aria-hidden="true">»</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
+</div>
 </div>
