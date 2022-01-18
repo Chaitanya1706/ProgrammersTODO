@@ -1,23 +1,51 @@
 const Question = require('../models/question');
 const User = require('../models/user');
 
-module.exports.addQuestion = function(req,res){
-    res.render('add_question',{
-        title : 'Add Question',
-        page_name : 'add_ques'
+module.exports.addQuestion = function (req, res) {
+    res.render('add_question', {
+        title: 'Add Question',
+        page_name: 'add_ques'
     })
 }
 
-module.exports.todo = function(req,res){
-    res.render('todo',{
-        title : 'TODO',
-        page_name : 'todo',
+module.exports.todo = async function (req, res) {
+
+    var now = new Date();
+    const todo = await Question.find({
+        deadline: { $lte: new Date(now) },
+        status: { $in: ["RETRY", "UNSOLVED"] }
+    })
+
+
+    res.render('todo', {
+        title: 'TODO',
+        page_name: 'todo',
+        todo: todo
     })
 }
 
-module.exports.create = async function(req,res){
+module.exports.markdone = async function (req, res) {
+
+    const marktodo = req.body;
+    console.log(marktodo);
+
+    const updateres = await Question.updateMany(
+        {
+            _id: {
+                $in: marktodo.mark
+            }
+        },
+        { $set: { status: "SOLVED" } }
+        , { multi: true }
+
+    )
+    console.log(updateres);
+    return res.redirect('/questions/todo');
+
+}
+module.exports.create = async function (req, res) {
     // console.log(req.body);
-    try{
+    try {
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
@@ -26,41 +54,39 @@ module.exports.create = async function(req,res){
         user.save();
         return res.redirect('/questions/view');
 
-    }catch(err){
-        console.log('Error!!',err);
+    } catch (err) {
+        console.log('Error!!', err);
     }
-    
+
 
 }
 
-module.exports.viewList = async function(req,res){
-    try{
+module.exports.viewList = async function (req, res) {
+    try {
         // const question = await Question.find({})
         const user = await User.findById(req.user.id)
-        .populate('questions').select("-password")
-        // console.log(user);
-        // console.log("***",user.questions);
-        // console.log(typeof(user.questions));
-        return res.render('list',{
-            title : 'List',
-            page_name : 'questions',
-            questions : user.questions
+            .populate('questions').select("-password")
+
+        return res.render('list', {
+            title: 'List',
+            page_name: 'questions',
+            questions: user.questions
         })
-    }catch(err){
-        console.log('error!',err);
+    } catch (err) {
+        console.log('error!', err);
     }
-    
+
 }
 
-module.exports.destroy = async function(req,res){
-    try{
+module.exports.destroy = async function (req, res) {
+    try {
         let ques = await Question.findById(req.params.id);
         ques.remove();
         await User.findByIdAndUpdate(req.user.id, {$pull : {questions : req.params.id}})
 
         return res.redirect('back');
-    }catch(err){
-        console.log('Error',err);
+    } catch (err) {
+        console.log('Error', err);
     }
 }
 
@@ -81,6 +107,7 @@ module.exports.updateQuestion = async function(req,res){
 
 module.exports.update = async function(req,res){
     try{
+
         await Question.findByIdAndUpdate(req.params.id,req.body);
 
         return res.redirect('/questions/view');

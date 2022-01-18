@@ -1,24 +1,24 @@
 <link rel="stylesheet" href="/css/addquestion.css">
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div class="col-7 card questioninput">
+        <div class="col-7 card questioninput required">
             <form action="/questions/create" method="post">
                 <div class="col-md-12  mb-3">
-                    <label class="form-label" for="name">Question Name</label>
-                    <input class="form-control" type="text" name="name" id="name" placeholder="Write question name"
-                        required>
+                    <label class="" for="name">Question Name</label>
+                    <input required class="form-control" type="text" name="name" id="name"
+                        placeholder="Write question name" required>
 
                 </div>
                 <div class="col-md-12  mb-3">
 
-                    <label class="form-label" for="link">Question Link</label>
-                    <input class="form-control" type="url" name="link" id="link" placeholder="Add question link here.."
-                        required>
+                    <label class="" for="link">Question Link</label>
+                    <input required class="form-control" type="url" name="link" id="link"
+                        placeholder="Add question link here.." required>
 
                 </div>
 
                 <div class="col-md-12  mb-3">
-                    <label for="topic">Topic</label>
+                    <label for="topic">Topic(Optional)</label>
                     <input type="text" id="topic" class="form-control" placeholder="Enter Category or Topic"
                         name="topic">
                 </div>
@@ -26,25 +26,27 @@
 
                 <div class="row  mb-3">
                     <div class="col-md-6">
-                        <label for="status" class="form-label">Question Status </label>
-                        <select id="status" class="form-select" name="status" id="status">
-                            <option value="SOLVED">SOLVED</option>
-                            <option value="UNSOLVED">UNSOLVED</option>
+                        <label for="status" class="">Question Status </label>
+                        <select id="status" class="form-select form-control" name="status" id="status">
+                            <option selected value="UNSOLVED">UNSOLVED</option>
                             <option value="RETRY">RETRY</option>
+                            <option value="SOLVED">SOLVED</option>
+
                         </select>
 
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label" for="deadline">Deadline </label>
-                        <input type="date" class="form-control" id="deadline" name="deadline">
+                        <label class="" for="deadline">Revision Date</label>
+                        <input required type="date" class="form-control" id="deadline" name="deadline">
+                        <small class="text-muted">Default revision date 20 days</small>
                     </div>
                 </div>
 
 
                 <div class="col-md-12  mb-3">
 
-                    <label class="form-label" for="desc">Description (Optional)</label>
-                    <textarea class="form-control" name="description" id="desc" rows="5"
+                    <label class="" for="desc">Description (Optional)</label>
+                    <textarea class="form-control" name="description" id="desc" rows="1"
                         placeholder="Question Description"></textarea>
 
                 </div>
@@ -52,7 +54,8 @@
 
                 <div class="col-md-12">
                     <div class="text-center">
-                        <input type="submit" value="Add Question" id="submit" name="submit" class="btn btn-primary">
+                        <input required type="submit" value="Add Question" id="submit" name="submit"
+                            class="btn btn-primary">
 
                         <button type="reset" id="clear" name="clear" class="btn btn-secondary">
                             Cancel
@@ -68,3 +71,4 @@
 
 
 </div>
+<script src="/js/addquestion.js"></script>

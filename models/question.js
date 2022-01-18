@@ -1,30 +1,30 @@
 const mongoose = require('mongoose');
 
 const questSchema = new mongoose.Schema({
-    name : {
-        type : String,
-        required : true
+    name: {
+        type: String,
+        required: true
     },
-    link : {
-        type : String,
-        required : true
+    link: {
+        type: String,
+        required: true
     },
-    topic : {
-        type : String,
+    topic: {
+        type: String,
     },
-    deadline : {
-        type : String
+    deadline: {
+        type: Date
     },
-    status :{
-        type : String
+    status: {
+        type: String
     },
-    description :{
-        type : String
+    description: {
+        type: String
     }
-},{
-    timestamps : true
+}, {
+    timestamps: true
 })
 
-const Question = mongoose.model('Question',questSchema);
+const Question = mongoose.model('Question', questSchema);
 
 module.exports = Question;
