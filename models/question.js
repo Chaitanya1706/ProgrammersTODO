@@ -18,6 +18,10 @@ const questSchema = new mongoose.Schema({
     status: {
         type: String
     },
+    lastsolved: {
+        type: Date,
+        default: null
+    },
     description: {
         type: String
     }
@@ -25,6 +29,7 @@ const questSchema = new mongoose.Schema({
     timestamps: true
 })
 
+questSchema.index({ name: 'text', topic: 'text' });
 const Question = mongoose.model('Question', questSchema);
 
 module.exports = Question;

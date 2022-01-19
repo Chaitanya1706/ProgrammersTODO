@@ -29,7 +29,9 @@
                                     </a>
                                     <small
                                         class="badge <%- item.status=='UNSOLVED' ? 'bg-info' :item.status=='SOLVED' ? 'bg-success' : 'bg-danger'%>"><i
-                                            class="far fa-clock"></i> 2 mins</small>
+                                            class="far fa-clock"></i>
+                                        <%= item.lastsolved ? moment(item.lastsolved).fromNow() : '--' %>
+                                    </small>
 
                                 </li>
                                 <%})%>

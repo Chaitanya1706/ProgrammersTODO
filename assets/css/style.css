@@ -127,7 +127,7 @@ body{
 
 .text_grad_1 {
     color: linear-gradient(to right, #005c97, #363795) !important;
-  }
+}
   
   .bg_grad_1 {
     background: #005c97; /* fallback for old browsers */
@@ -185,7 +185,15 @@ body{
     color: #00a699 !important;
   }
   
-  .bg_green_1 {
+.bg_green_1 {
     background-color: #00a699 !important;
   }
   
+  .transbtn{
+    transition: background-color 1s;
+  
+  
+  }
+  .transbtn:hover{
+    background-color: #e3e8ee;  
+  }

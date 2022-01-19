@@ -6,17 +6,16 @@ form{
   padding: 0;
 }
 
-.table>:not(caption)>*>*{  
-    border-bottom-width: 0px;    
-}
+
 
 .widget-26 {
 color: #3c4142;
 font-weight: 400;
 }
 
-.widget-26 tr:first-child td {
-border: 0;
+.widget-26 thead {
+  border: 0;
+  margin-bottom: 0px;
 }
 
 .widget-26 .widget-26-job-emp-img img {
@@ -32,10 +31,13 @@ border-radius: 50%;
 }
 
 .widget-26 .widget-26-job-title a {
-font-weight: 400;
-font-size: 0.875rem;
-color: #3c4142;
-line-height: 1.5;
+  min-width: 275px;  
+  margin: 5px 0 5px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+    color: #333;
 }
 
 .widget-26 .widget-26-job-title a:hover {
@@ -100,8 +102,7 @@ border-radius: 50%;
 }
 
 .widget-26 .widget-26-job-category span {
-  font-size: 0.8125rem;
-  color: #3c4142;
+  font-size: 0.8125rem;  
   font-weight: 600;
 }
 .widget-26-job-action i{
@@ -140,27 +141,36 @@ border-radius: 50%;
     background-color: #d7efff;
 }
 
+.solved{
+  background-color: #e7feee;
+    color: #158f54 !important;
+}
+.unsolved{
+  background-color: #d7efff;
+  color: #0c8bef !important;
 
-.search-form {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 1rem;
+}
+.retry{
+  background-color: #fee7e7;
+  color: #e66262 !important;
 }
 
-.search-form input {
-  height: 100%;
+/* .search-form {
+ 
+} */
+
+.search-form input {  
   background: transparent;
   border: 0;
   display: block;
-  width: 100%;
   padding: 1rem;
   height: 100%;
   font-size: 1rem;
   letter-spacing: 0.3px;
   font-weight: 400;
+  width: 100%;
 }
 .search-form input:focus{
- 
   box-shadow: none;
   -webkit-box-shadow: none;
   border: none;
@@ -171,94 +181,12 @@ border-radius: 50%;
   
 }
 
-.search-form select {
-  background: transparent;
-  border: 0;
-  padding: 1rem;
-  height: 100%;
-  font-size: 1rem;
-  border: 1px solid transparent;
- 
-}
-
-.search-form select:focus {
-  
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border: none;
-  outline: none;
- 
-}
-
-.search-form button {
-  height: 100%;
-  width: 80%;
-  font-size: 1rem;
-}
-
-.search-form button svg {
-  width: 24px;
-  height: 24px;
-}
-.search-form button:focus{
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border: none;
-  outline: none;
-  font-weight: 900;
-  color: #363795;
-  transform: scale(1.2);
-}
-
 .search-body {
   margin-bottom: 1.5rem;
 }
 
-.search-body .search-filters .filter-list {
-  margin-bottom: 1.3rem;
-}
 
-.search-body .search-filters .filter-list .title {
-  color: #3c4142;
-  margin-bottom: 1rem;
-}
 
-.search-body .search-filters .filter-list .filter-text {
-  color: #727686;
-}
-
-.search-body .search-result .result-header {
-  margin-bottom: 2rem;
-}
-
-.search-body .search-result .result-header .records {
-  color: #3c4142;
-}
-
-.search-body .search-result .result-header .result-actions {
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.search-body .search-result .result-header .result-actions .result-sorting {
-  display: flex;
-  align-items: center;
-}
-
-.search-body .search-result .result-header .result-actions .result-sorting span {
-  flex-shrink: 0;
-  font-size: 0.8125rem;
-}
-
-.search-body .search-result .result-header .result-actions .result-sorting select {
-  color: #68CBD7;
-}
-
-.search-body .search-result .result-header .result-actions .result-sorting select option {
-  color: #3c4142;
-}
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .search-body .search-filters {
@@ -308,3 +236,39 @@ border-radius: 50%;
     padding: 1px 3px;   
     border-radius: 4px;      
 }
+
+.topbtn:hover{
+  background-color: #005c97;
+
+}
+
+
+#pickrandom, #addquestionbtn{
+  white-space: nowrap;
+}
+.card .card-bdoy .searchpannel{
+  padding: 10px 20px;
+  border: 20px solid pink;
+}
+.searchContainer{
+  display: flex;
+  border: 1px solid  rebeccapurple;
+}
+.searchContainer input{
+  border: 1px solid green;
+  flex: 0.9;
+}
+.searchContainer button{
+  border: 1px solid blue;
+  flex: 0.1;
+}
+.filteraction{
+  background-color: #005c97;  
+}
+/* box-shadow: none;
+-webkit-box-shadow: none;
+border: none;
+outline: none;
+font-weight: 900;
+color: #363795;
+transform: scale(1.2); */

@@ -1,6 +1,6 @@
 const Question = require('../models/question');
 const User = require('../models/user');
-
+const moment = require('moment');
 //todo
 module.exports.todo = async function (req, res) {
 
@@ -8,12 +8,13 @@ module.exports.todo = async function (req, res) {
         const user = await User.findById(req.user.id)
             .populate('questions')
 
-        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0,Math.min(user.questions.length,3));
+        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, Math.min(user.questions.length, 3));
 
         res.render('todo', {
             title: 'TODO',
             page_name: 'todo',
-            todo: randomPick
+            todo: randomPick,
+            moment: moment
         })
     }
     else {
@@ -27,7 +28,8 @@ module.exports.todo = async function (req, res) {
         res.render('todo', {
             title: 'TODO',
             page_name: 'todo',
-            todo: todo
+            todo: todo,
+            moment: moment
         })
     }
 }
@@ -43,7 +45,7 @@ module.exports.markdone = async function (req, res) {
                 $in: marktodo.mark
             }
         },
-        { $set: { status: "SOLVED" } }
+        { $set: { status: "SOLVED", lastsolved: new Date() } }
         , { multi: true }
 
     )
@@ -69,21 +71,21 @@ module.exports.create = async function (req, res) {
 
         const user = await User.findById(req.user.id);
         user.questions.push(question.id);
-        if(question.status=='SOLVED'){
+        if (question.status == 'SOLVED') {
             user.solved.push(question.id);
         }
-        else if(question.status=='UNSOLVED'){
+        else if (question.status == 'UNSOLVED') {
             user.unsolved.push(question.id);
         }
-        else if(question.status=='RETRY'){
+        else if (question.status == 'RETRY') {
             user.retry.push(question.id);
         }
         user.save();
-        req.flash('success','New Question Added Successfully')
+        req.flash('success', 'New Question Added Successfully')
         return res.redirect('/questions/add');
 
     } catch (err) {
-        req.flash('error',err);
+        req.flash('error', err);
     }
 
 
@@ -98,7 +100,8 @@ module.exports.viewList = async function (req, res) {
         return res.render('list', {
             title: 'List',
             page_name: 'questions',
-            questions: user.questions
+            questions: user.questions,
+            moment: moment
         })
     } catch (err) {
         console.log('error!', err);
@@ -110,14 +113,14 @@ module.exports.destroy = async function (req, res) {
     try {
         let question = await Question.findById(req.params.id);
         question.remove();
-        if(question.status=='SOLVED'){
-            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, solved : req.params.id } })
+        if (question.status == 'SOLVED') {
+            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, solved: req.params.id } })
         }
-        else if(question.status=='UNSOLVED'){
-            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, unsolved : req.params.id } })
+        else if (question.status == 'UNSOLVED') {
+            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, unsolved: req.params.id } })
         }
-        else if(question.status=='RETRY'){
-            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, retry : req.params.id } })
+        else if (question.status == 'RETRY') {
+            await User.findByIdAndUpdate(req.user.id, { $pull: { questions: req.params.id, retry: req.params.id } })
         }
         return res.redirect('back');
     } catch (err) {
@@ -143,36 +146,37 @@ module.exports.updateQuestion = async function (req, res) {
 module.exports.update = async function (req, res) {
     try {
         const question = await Question.findById(req.params.id);
-        
-        if(question.status !== req.body.status){
-            const user =  await User.findById(req.user.id);
 
-            if(question.status=='SOLVED'){
-                await User.findByIdAndUpdate(req.user.id, { $pull: { solved : req.params.id } })
+        if (question.status !== req.body.status) {
+            const user = await User.findById(req.user.id);
+
+            if (question.status == 'SOLVED') {
+                await User.findByIdAndUpdate(req.user.id, { $pull: { solved: req.params.id } })
             }
-            else if(question.status=='UNSOLVED'){
-                await User.findByIdAndUpdate(req.user.id, { $pull: { unsolved : req.params.id } })
+            else if (question.status == 'UNSOLVED') {
+                await User.findByIdAndUpdate(req.user.id, { $pull: { unsolved: req.params.id } })
             }
-            else if(question.status=='RETRY'){
-                await User.findByIdAndUpdate(req.user.id, { $pull: { retry : req.params.id } })
+            else if (question.status == 'RETRY') {
+                await User.findByIdAndUpdate(req.user.id, { $pull: { retry: req.params.id } })
             }
-            if(req.body.status=='SOLVED'){
+            if (req.body.status == 'SOLVED') {
                 user.solved.push(req.params.id);
             }
-            else if(req.body.status=='UNSOLVED'){
+            else if (req.body.status == 'UNSOLVED') {
                 user.unsolved.push(req.params.id);
             }
-            else if(req.body.status=='RETRY'){
+            else if (req.body.status == 'RETRY') {
                 user.retry.push(req.params.id);
             }
             user.save();
+            req.body.lastsolved = new Date()
         }
         await Question.findByIdAndUpdate(req.params.id, req.body);
 
-        req.flash('success','Question Updated Successfully');
+        req.flash('success', 'Question Updated Successfully');
 
         return res.redirect('/questions/view');
     } catch (err) {
-        req.flash('error',err)
+        req.flash('error', err)
     }
 }
