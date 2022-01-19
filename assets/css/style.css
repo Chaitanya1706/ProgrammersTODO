@@ -114,9 +114,6 @@ body{
     border-bottom: 2px solid #f9423a;    
     color: linear-gradient(to right, #005c97, #363795);
 }
-.nav-link{
-    color: gree !important;
-}
 
 
 
@@ -209,10 +206,6 @@ body{
     background-color: #d0d6df;    
   }
 
-
-
- 
-  
   .ripple {
     position: absolute;
     top: 50%;

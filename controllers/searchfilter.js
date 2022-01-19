@@ -19,8 +19,8 @@ module.exports.search = async function (req, res) {
                     res.send("500 Internal Error")
                 }
                 return res.render('list', {
-                    title: 'List',
-                    page_name: 'questions',
+                    title: 'search | ' + search,
+                    page_name: 'search',
                     questions: data || [],
                     moment: moment
                 })
@@ -45,8 +45,8 @@ module.exports.returnstatusQuestion = async function (req, res) {
         .populate(status).select("-password")
 
     return res.render('list', {
-        title: 'List',
-        page_name: 'questions',
+        title: status + " Question",
+        page_name: 'filter',
         questions: filterd[status],
         moment: moment
     })

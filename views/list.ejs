@@ -8,39 +8,59 @@
             <form action="/questions/search" id="search-form" method="post">
                 <fieldset>
                     <div class="inner-form">
-                        <div class="input-field">
-                            <input name="search" class="form-control" id="choices-text-preset-values" type="text"
-                                placeholder="Type to search..." />
-                            <button class="btn-search" type="button">
-                                <i class="fas fa-search"></i>
+                        <% if(locals.page_name=="questions" || locals.page_name=="search" ){ %>
 
-                            </button>
-                        </div>
+                            <div class="input-field">
+                                <input name="search" class="form-control searchinput" id="choices-text-preset-values"
+                                    type="search" placeholder="Type to search..." />
+                                <button class="btn-search" type="submit">
+                                    <i class="fas fa-search"></i>
+
+                                </button>
+                            </div>
+                            <%}%>
                     </div>
+
+
+
+
                     <div class="suggestion-wrap">
-                        <span class="glassy transbtn2">
-                            <a id="addquestionbtn" class=" text-primary text-decoration-none"
-                                href="/questions/status?s=solved">
-                                Solved
-                            </a>
-                        </span>
-                        <span class="glassy transbtn2">
+                        <% if(locals.page_name!=="questions" ){%>
+                            <span class="glassy transbtn2 text_primary_special">
+                                <a id="addquestionbtn" class="text-secondary text-decoration-none"
+                                    href="/questions/view">
+                                    <i class="fas fa-chevron-circle-left"></i> Back
+                                </a>
 
-                            <a id="addquestionbtn" class="text-primary text-decoration-none"
-                                href="/questions/status?s=unsolved">
-                                UnSolved
-                            </a>
+                            </span>
+                            <%}%>
+                                <% if(locals.page_name=="questions" || locals.page_name=="filter" ){ %>
+                                    <span class="glassy transbtn2">
+                                        <a id="addquestionbtn" class=" text-primary text-decoration-none"
+                                            href="/questions/status?s=solved">
+                                            Solved
+                                        </a>
+                                    </span>
+                                    <span class="glassy transbtn2">
 
-                        </span>
-                        <span class="glassy transbtn2">
+                                        <a id="addquestionbtn" class="text-primary text-decoration-none"
+                                            href="/questions/status?s=unsolved">
+                                            UnSolved
+                                        </a>
 
-                            <a id="addquestionbtn" class="text-primary text-decoration-none"
-                                href="/questions/status?s=retry">
-                                Retry
-                            </a>
-                        </span>
+                                    </span>
+                                    <span class="glassy transbtn2">
+
+                                        <a id="addquestionbtn" class="text-primary text-decoration-none"
+                                            href="/questions/status?s=retry">
+                                            Retry
+                                        </a>
+                                    </span>
+                                    <%}%>
 
                     </div>
+
+
                 </fieldset>
             </form>
         </div>
