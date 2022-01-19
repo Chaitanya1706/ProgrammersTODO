@@ -1,49 +1,51 @@
 <link rel="stylesheet" href="/css/questions.css">
+<link rel="stylesheet" href="/css/search.css">
+
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 card-margin">
-            <div class="card search-form">
-                <div class="card-body p-0">
-                    <form action="/questions/search" id="search-form" method="post">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-4 col-md-5 col-sm-12 p-0 filteraction">
-                                        <a id="addquestionbtn"
-                                            class="btn btn-default text-primary text-decoration-none transbtn"
-                                            target="_blank" href="/questions/add">
-                                            <i class="fas fa-plus-circle"></i> Solved
-                                        </a>
-                                        <a id="addquestionbtn"
-                                            class="btn btn-default text-primary text-decoration-none transbtn"
-                                            target="_blank" href="/questions/add">
-                                            <i class="fas fa-plus-circle"></i> UnSolved
-                                        </a>
-                                        <a id="addquestionbtn"
-                                            class="btn btn-default text-primary text-decoration-none transbtn"
-                                            target="_blank" href="/questions/add">
-                                            <i class="fas fa-plus-circle"></i> Retry
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-7 col-md-6 col-sm-12 p-0 searchContainer">
-                                        <input type="search" placeholder="Search..." class="form-control" id="search"
-                                            name="search" autocomplete="false">
-                                        <button type="submit" class="btn btn-base">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+        <div class="s004">
+            <form action="/questions/search" id="search-form" method="post">
+                <fieldset>
+                    <div class="inner-form">
+                        <div class="input-field">
+                            <input name="search" class="form-control" id="choices-text-preset-values" type="text"
+                                placeholder="Type to search..." />
+                            <button class="btn-search" type="button">
+                                <i class="fas fa-search"></i>
 
-                                    </div>
-                                </div>
-                            </div>
+                            </button>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+                    <div class="suggestion-wrap">
+                        <span class="glassy transbtn2">
+                            <a id="addquestionbtn" class=" text-primary text-decoration-none"
+                                href="/questions/status?s=solved">
+                                Solved
+                            </a>
+                        </span>
+                        <span class="glassy transbtn2">
+
+                            <a id="addquestionbtn" class="text-primary text-decoration-none"
+                                href="/questions/status?s=unsolved">
+                                UnSolved
+                            </a>
+
+                        </span>
+                        <span class="glassy transbtn2">
+
+                            <a id="addquestionbtn" class="text-primary text-decoration-none"
+                                href="/questions/status?s=retry">
+                                Retry
+                            </a>
+                        </span>
+
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
+
 
     <div class="row">
         <div class="col-12">
@@ -154,7 +156,7 @@
                                                                 %>">
                                                             </i>
                                                             <span>
-                                                                <%= ques.status %>
+                                                                <%= ques.status || "---" %>
                                                             </span>
                                                         </div>
                                                     </td>

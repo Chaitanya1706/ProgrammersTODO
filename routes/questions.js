@@ -6,8 +6,8 @@ const router = express.Router();
 const questionsController = require('../controllers/questions_controller');
 const searchfilter = require('../controllers/searchfilter')
 router.get('/view', passport.checkAuthentication, questionsController.viewList)
-
 router.post('/search', passport.checkAuthentication, searchfilter.search)
+router.get('/status', passport.checkAuthentication, searchfilter.returnstatusQuestion)
 
 
 router.get('/add', passport.checkAuthentication, questionsController.addQuestion)

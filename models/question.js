@@ -16,7 +16,8 @@ const questSchema = new mongoose.Schema({
         type: Date
     },
     status: {
-        type: String
+        type: String,
+        default: 'UNSOLVED'
     },
     lastsolved: {
         type: Date,
@@ -24,12 +25,18 @@ const questSchema = new mongoose.Schema({
     },
     description: {
         type: String
+    },
+    userid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, {
     timestamps: true
 })
 
-questSchema.index({ name: 'text', topic: 'text' });
+// questSchema.index({ name: 'text', topic: 'text' });
+
+
 const Question = mongoose.model('Question', questSchema);
 
 module.exports = Question;

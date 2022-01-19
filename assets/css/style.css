@@ -197,3 +197,37 @@ body{
   .transbtn:hover{
     background-color: #e3e8ee;  
   }
+
+
+    
+  .transbtn2{
+    transition: all 1s;
+  margin-left: 15px;
+  
+  }
+  .transbtn2:hover{
+    background-color: #d0d6df;    
+  }
+
+
+
+ 
+  
+  .ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1000;
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: .8 ;
+    }
+  }

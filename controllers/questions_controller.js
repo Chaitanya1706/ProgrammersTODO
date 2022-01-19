@@ -67,19 +67,13 @@ module.exports.addQuestion = function (req, res) {
 module.exports.create = async function (req, res) {
     // console.log(req.body);
     try {
+        req.body.userid = req.user._id
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
         user.questions.push(question.id);
-        if (question.status == 'SOLVED') {
-            user.solved.push(question.id);
-        }
-        else if (question.status == 'UNSOLVED') {
-            user.unsolved.push(question.id);
-        }
-        else if (question.status == 'RETRY') {
-            user.retry.push(question.id);
-        }
+
+        user.unsolved.push(question.id);
         user.save();
         req.flash('success', 'New Question Added Successfully')
         return res.redirect('/questions/add');
@@ -171,6 +165,7 @@ module.exports.update = async function (req, res) {
             user.save();
             req.body.lastsolved = new Date()
         }
+        req.body.userid = req.user._id
         await Question.findByIdAndUpdate(req.params.id, req.body);
 
         req.flash('success', 'Question Updated Successfully');
