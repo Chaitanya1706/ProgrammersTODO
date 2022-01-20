@@ -229,9 +229,31 @@ body{
   .about-btn{
     position: sticky;
     top: 90%;
-    left: 90%;
+    left: 95%;
     z-index: 1000;
     width: 50px;
     height: 50px;    
     font-size: 40px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
   }
+.about-btn i{
+  display: flex;
+  margin-bottom: -2px;
+  padding: 0%;
+  margin: 0;
+
+}
+  .theme-color {
+    color: #18bc9c;
+}
+.dark-color {
+    color: #20247b;
+}
+ 
