@@ -23,7 +23,6 @@ module.exports.todo = async function (req, res) {
             deadline: { $lte: new Date(now) },
             status: { $in: ["RETRY", "UNSOLVED"] },
             userid: req.user.id
-
         })
 
 
@@ -76,7 +75,7 @@ module.exports.create = async function (req, res) {
         user.questions.push(question.id);
 
         user.unsolved.push(question.id);
-        
+
         req.flash('success', 'New Question Added Successfully')
 
         user.save();

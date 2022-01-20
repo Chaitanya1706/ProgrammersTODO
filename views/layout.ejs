@@ -23,8 +23,7 @@
 
 <body>
     <%- include('navbar'); %>
-        <button type="button" class="btn btn-dark pmd-btn-fab pmd-ripple-effect about"><i
-                class="material-icons pmd-sm">local_phone</i></button>
+        <a href="/about" class="btn btn-dark about-btn">ABOUT</a>
 
         <main id="layout_main">
             <%- body %>
@@ -39,7 +38,7 @@
                         theme: 'relax',
                         text: "<%= flash.success%> ",
                         type: 'success',
-                        layout: 'topRight',
+                        layout: 'bottomRight',
                         timeout: 1500
                     }).show();
             <% } %> 
@@ -49,7 +48,7 @@
                         theme: 'relax',
                         text: "<%= flash.error%> ",
                         type: 'error',
-                        layout: 'topRight',
+                        layout: 'bottomRight',
                         timeout: 1500
                     }).show();
             <% } %> 

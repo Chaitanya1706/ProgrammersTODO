@@ -17,6 +17,7 @@
 
 body{
     font-family: Roboto;
+    position: relative;
 }
 .customnav{
     background-color: antiquewhite;
@@ -225,8 +226,9 @@ body{
     }
   }
 
-  .about{
-    position: absolute;
-    top: 88%;
-    right: 1%;
+  .about-btn{
+    position: sticky;
+    top: 90%;
+    left: 90%;
+    z-index: 1000;
   }

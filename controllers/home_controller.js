@@ -26,3 +26,7 @@ module.exports.home = async function (req, res) {
     }
 
 }
+
+module.exports.about = function(req,res){
+    return res.send("<h1>ABOUT</h1>")
+}
