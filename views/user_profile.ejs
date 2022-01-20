@@ -1,16 +1,80 @@
 <link rel="stylesheet" href="/css/profile.css">
-<div class="container section ">
+<link rel="stylesheet" href="/css/profileForm.css">
+<div class="container">
     <div class="row about-top bg-c-yellow shd">
         <a href="/users/edit/<%= profile_user.id %>"><i class="fas fa-user-edit"></i></a>
         <div class="col-lg-3">
             <div class="about-avatar">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Enter Profle Details
+                            ....................</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="/campgrounds" method="POST" novalidate class="needs-validation"
+                            enctype="multipart/form-data">
+                            <div class="registration-form">
+                                <div class="form-icon">
+                                    <span><i class="far fa-user"></i></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+
+                                    <input type="text" class="form-control item" id="username" placeholder="Username"
+                                        readonly value="Abhishek Tiwari">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Education</label>
+
+                                    <input type="Education" class="form-control item" id="password"
+                                        placeholder="Education">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Bio</label>
+
+                                    <textarea type="text" class="form-control item" id="bio"
+                                        placeholder="Describe yourself here..."> </textarea>
+                                </div>
+
+                                <div class="form-group" id="upload">
+                                    <!-- <input type="file" class="form-control item" name="image" id="upload-Images" single> -->
+                                    <label class="form-label">Upload Profile Photo</label>
+                                    <input type="file" class="form-control item" name="image" id="upload-Images">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-block create-account">Update</button>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-thumbnail rounded float-start"
+                    title="" alt="">
             </div>
         </div>
         <div class="col-lg-8">
             <div class="about-text go-to">
                 <h3 class="dark-color">
                     <%= profile_user.username %>
+
+                        <a type="button" class="edit btn-floating btn-blue-grey" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                            <i class="fas fa-edit"> </i>
+                        </a>
+
+
+
+
                 </h3>
                 <h6 class="theme-color lead">
                     <%= profile_user.education %>
@@ -20,6 +84,7 @@
                     digital user experiences through the bold interface and meaningful interactions.</p>
 
             </div>
+
         </div>
 
     </div>
