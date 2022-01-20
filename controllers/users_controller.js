@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Profile = require('../models/profile');
 
 module.exports.profile = function (req, res) {
 
@@ -13,11 +14,31 @@ module.exports.profile = function (req, res) {
 
 }
 
-module.exports.update = function (req, res) {
-    if (req.user.id == req.params.id) {
-        User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
-            return res.redirect('back');
-        });
+module.exports.edit = async function(req,res){
+
+    try{
+        const user = await User.findById(req.params.id)
+        .populate('profile');
+
+        return res.render('user_edit',{
+            user : user
+        })
+
+    }catch(err){
+
+    }
+}
+
+module.exports.update = async function (req, res) {
+    if (req.user.profile == req.params.id) {
+        try{
+            await Profile.findByIdAndUpdate(req.params.id, req.body);
+            req.flash('success','Profile Updated Successfully!!')
+            return res.redirect('/');
+        }catch(err){
+            req.flash('error',err);
+        }
+        
     } else {
         return res.status(401).send('Unauthorized');
     }
@@ -56,9 +77,25 @@ module.exports.create = async function (req, res) {
         const user = await User.findOne({ email: req.body.email })
 
         if (!user) {
-            await User.create(req.body)
+            const user = await User.create(req.body)
+            
+            const profile = await Profile.create({
+                name : req.body.username,
+                email : req.body.email,
+                user : user.id
+            })
+
+            user.profile = profile._id;
+            // console.log("User***",user);
+            // console.log("Prof***",profile);
+
+            req.flash('success','SignUp Successfully!')
+
+            user.save();
+
             return res.redirect('/users/signin');
         } else {
+            req.flash('error','User already exist!')
             return res.redirect('back');
         }
     }catch(err){
