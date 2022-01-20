@@ -74,8 +74,11 @@ module.exports.create = async function (req, res) {
         user.questions.push(question.id);
 
         user.unsolved.push(question.id);
-        user.save();
+        
         req.flash('success', 'New Question Added Successfully')
+
+        user.save();
+
         return res.redirect('/questions/add');
 
     } catch (err) {
