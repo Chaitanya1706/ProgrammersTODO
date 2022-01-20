@@ -4,7 +4,7 @@
   "description": "Manange daily questions",
   "main": "index.js",
   "scripts": {
-    "start": "node inde.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,5 +29,8 @@
     "parse-multipart-data": "^1.2.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
