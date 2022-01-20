@@ -31,13 +31,17 @@ border-radius: 50%;
 }
 
 .widget-26 .widget-26-job-title a {
-  min-width: 275px;  
+  min-width: 270px;  
   margin: 5px 0 5px 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-decoration: none;
     color: #1a237e;
+    max-width: 300px;
+
+   
+    
 }
 
 .widget-26 .widget-26-job-title a:hover {
@@ -67,6 +71,8 @@ font-weight: 400;
 .widget-26 .widget-26-job-info {
 min-width: 100px;
 font-weight: 400;
+max-width: 190px;
+
 }
 
 .widget-26 .widget-26-job-info p {
