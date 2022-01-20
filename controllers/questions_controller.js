@@ -21,7 +21,9 @@ module.exports.todo = async function (req, res) {
         var now = new Date();
         const todo = await Question.find({
             deadline: { $lte: new Date(now) },
-            status: { $in: ["RETRY", "UNSOLVED"] }
+            status: { $in: ["RETRY", "UNSOLVED"] },
+            userid: req.user.id
+
         })
 
 
