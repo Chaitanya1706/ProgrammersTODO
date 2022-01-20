@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
-    bio : {
-        type : String,
+    bio: {
+        type: String,
     },
-    img : {
-        type : String
+    img: {
+        filename: String,
+        filepath: String
     },
-    website : {
-        type : String
+    website: {
+        type: String
     },
-    user : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'User'
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 
-const Profile = mongoose.model('Profile',profileSchema);
+const Profile = mongoose.model('Profile', profileSchema);
 
 module.exports = Profile;

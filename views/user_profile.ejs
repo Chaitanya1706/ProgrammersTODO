@@ -1,129 +1,142 @@
 <link rel="stylesheet" href="/css/profile.css">
 <link rel="stylesheet" href="/css/profileForm.css">
-<div class="container">
-    <div class="row about-top bg-c-yellow shd">
+<div class="container profile">
+    <div class="row card d-flex flex-lg-row flex-md-row flex-sm-column">
 
-        <div class="col-lg-3">
-            <div class="about-avatar">
+        <div class="col-lg-1 card-body">
 
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                    aria-labelledby="offcanvasWithBothOptionsLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Enter Profle Details
-                            ....................</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <form action="/users/update" id="update_form" method="POST" enctype="multipart/form-data">
-                            <div class="registration-form">
-                                <div class="form-icon">
-                                    <span><i class="far fa-user"></i></span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Update Profle</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <form action="/users/update" id="update_form" method="post" enctype="multipart/form-data">
+                        <div class=" registration-form">
+                            <div class="form-icon">
+                                <span><i class="far fa-user"></i></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
 
-                                    <input type="text" class="form-control item" id="username" name="username" placeholder="Username"
-                                        value="<%= profile_user.username %> ">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Education</label>
+                                <input type="text" class="form-control item" id="username" name="username"
+                                    placeholder="Username" value="<%= profile_user.username %> ">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Education</label>
 
-                                    <input type="Education" class="form-control item" id="password" name="education"
-                                        value="<%= profile_user.education %> " placeholder="Education">
-                                </div>
+                                <input type="text" class="form-control item" id="Education" name="education"
+                                    value="<%= profile_user.education %> " placeholder="Education">
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="form-label">Bio</label>
+                            <div class="form-group">
+                                <label class="form-label">Website</label>
 
-                                    <textarea class="form-control item" id="bio" name="bio"
-                                        placeholder="Describe yourself here..."></textarea>
-                                </div>
+                                <input type="url" class="form-control item" id="website" name="website"
+                                    value="<%= profile_user.profile.website %> " placeholder="url">
+                            </div>
 
-                                <div class="form-group" id="upload">
-                                    <!-- <input type="file" class="form-control item" name="image" id="upload-Images" single> -->
-                                    <label class="form-label">Upload Profile Photo</label>
-                                    <input type="file" class="form-control item" name="image" id="upload-Images">
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
 
-                                </div>
+                                <textarea class="form-control item" id="bio" name="bio"
+                                    placeholder="Describe yourself here...">
+                                        <%= profile_user.profile.bio%>
+                                    </textarea>
+                            </div>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-block create-account">Update</button>
-                                </div>
+                            <div class="form-group" id="upload">
+                                <!-- <input type="file" class="form-control item" name="image" id="upload-Images" single> -->
+                                <label class="form-label">Upload Profile Photo</label>
+                                <input type="file" class="form-control item" name="image" id="upload-Images">
 
                             </div>
 
-                        </form>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block create-account">Update</button>
+                            </div>
 
-                    </div>
+                        </div>
+
+                    </form>
+
                 </div>
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-thumbnail rounded float-start"
-                    title="" alt="">
             </div>
+            <img src="<%= profile_user.profile.img.filepath %>" class="float-start img-fluid about-avatar" title=""
+                alt="">
+
         </div>
-        <div class="col-lg-8">
-            <div class="about-text go-to">
-                <h3 class="dark-color">
-                    <%= profile_user.username %>
+        <div class="col-lg-8 card-body">
+            <h4 class="card-title dark-color fade-in-left">
+                <%= profile_user.username %>
 
-                        <a type="button" class="edit btn-floating btn-blue-grey" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                            <i class="fas fa-edit"> </i>
-                        </a>
-
-
+                    <a type="button" class="edit btn-floating btn-blue-grey btn-sm" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <i class="fas fa-edit"> </i>
+                    </a>
+            </h4>
 
 
-                </h3>
-                <h6 class="theme-color lead">
-                    <%= profile_user.education %>
-                </h6>
-                <p>I design and develop services for customers of all sizes, specializing in
-                    creating stylish, modern websites, web services and online stores. My passion is to design
-                    digital user experiences through the bold interface and meaningful interactions.</p>
-
+            <h6 class="text-dark">
+                <%= profile_user.education %>
+            </h6>
+            <div class="websitelink">
+                <a target="_blank" href=" <%=profile_user.profile.website%>"> <i class="fas fa-external-link-alt"></i>
+                    <%=profile_user.profile.website%>
+                </a>
             </div>
+
+            <p>
+                <%= profile_user.profile.bio %>
+            </p>
+
+
 
         </div>
 
     </div>
-    <div class="counter bg-c-green shd">
 
-        <div class="data-box">
+
+
+    <div class="card counter bg-c-green shadow-2 d-flex flex-row">
+
+        <div class="data-box card-body">
             <div class="count-data text-center">
-                <h6 class="count h2" data-to="500" data-speed="500">
+                <h1 class="card-title count" data-to="500" data-speed="500">
                     <p>
                         <%=profile_user.questions.length%>
                     </p>
-                </h6>
+                </h1>
                 <p class="m-0px font-w-600">TotalQuestion</p>
             </div>
         </div>
-        <div class="data-box">
+        <div class="data-box card-body">
             <div class="count-data text-center">
-                <h6 class="count h2" data-to="150" data-speed="150">
+                <h1 class=" count card-title" data-to="150" data-speed="150">
                     <%=profile_user.solved.length%>
-                </h6>
+                </h1>
                 <p class="m-0px font-w-600">
                     Solved
                 </p>
             </div>
         </div>
-        <div class="data-box">
+        <div class="data-box card-body">
             <div class="count-data text-center">
-                <h6 class="count h2" data-to="850" data-speed="850">
+                <h1 class="card-title count" data-to="850" data-speed="850">
                     <%=profile_user.unsolved.length%>
-                </h6>
+                </h1>
                 <p class="m-0px font-w-600">
                     unSolved
                 </p>
             </div>
         </div>
-        <div class="data-box">
+        <div class="data-box card-body">
             <div class="count-data text-center">
-                <h6 class="count h2" data-to="190" data-speed="190">
+                <h1 class="card-title count" data-to="190" data-speed="190">
                     <%=profile_user.retry.length%>
-                </h6>
+                </h1>
                 <p class="m-0px font-w-600">
                     Redo
                 </p>
@@ -134,8 +147,5 @@
 </div>
 <!-- </section> -->
 <script>
-    const formData = document.getElementById('update_form')
-    for (var value of formData.values()) {
-        console.log(value); 
-    }
+
 </script>

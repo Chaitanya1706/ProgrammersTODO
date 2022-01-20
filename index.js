@@ -3,13 +3,18 @@ const port = 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose')
-if(process.env.NODE_ENV != "production"){
+if (process.env.NODE_ENV != "production") {
     require('dotenv').config();
 }
 
-
+const bodyParser = require("body-parser");
 // to parse the body into json format
-app.use(express.urlencoded());
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+);
+
 
 const customMware = require('./config/middleware');
 app.use(express.static('./assets'));

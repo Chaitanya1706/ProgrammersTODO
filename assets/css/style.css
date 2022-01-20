@@ -19,6 +19,7 @@ body{
     font-family: Roboto;
     position: relative;
 }
+
 .customnav{
     background-color: antiquewhite;
     margin-bottom: 0px;
@@ -200,7 +201,7 @@ body{
     
   .transbtn2{
     transition: all 1s;
-  margin-left: 15px;
+  margin-left: 0px;
   
   }
   .transbtn2:hover{

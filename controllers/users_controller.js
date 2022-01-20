@@ -8,7 +8,7 @@ module.exports.profile = function (req, res) {
     User.findById(req.user.id, function (err, user) {
         return res.render('user_profile', {
             title: 'User Profile',
-            page_name : 'profile',
+            page_name: 'profile',
             profile_user: user
         });
     });
@@ -33,23 +33,29 @@ module.exports.profile = function (req, res) {
 
 module.exports.update = async function (req, res) {
 
-        try{
-            console.log('files***',req.files);
-            const r = req.files.map( f => f.path)
-            console.log("r****",r[0]);
-            req.body.img = r;
-            const p = await Profile.findByIdAndUpdate(req.params.id, req.body);
-            console.log("*******",p);
-            req.flash('success','Profile Updated Successfully!!')
-
-            return res.redirect('/');
-        }catch(err){
-            req.flash('error',err);
+    try {
+        req.body.img = req.file.path;
+        const userprofile = await Profile.findById(req.user.profile);
+        if (userprofile.img.filepath.length > 0) {
+            await cloudinary.uploader.destroy(userprofile.img.filename);
         }
 
-        // profileimg = req.files.map( f => ({url : f.path , filename: f.filename }) );
-        // req.flash
-        //redirect back
+        userprofile.bio = req.body.bio;
+        userprofile.website = req.body.website
+        userprofile.img.filepath = req.file.path;
+        userprofile.img.filename = req.file.filename
+        userprofile.save()
+
+        req.flash('success', 'Profile Updated Successfully!!')
+
+        return res.redirect('/');
+    } catch (err) {
+        req.flash('error', err);
+    }
+
+    // profileimg = req.files.map( f => ({url : f.path , filename: f.filename }) );
+    // req.flash
+    //redirect back
 }
 
 module.exports.signup = function (req, res) {
@@ -60,7 +66,7 @@ module.exports.signup = function (req, res) {
 
     return res.render('signup', {
         title: 'sign-up',
-        page_name : "signup",
+        page_name: "signup",
     })
 }
 
@@ -71,7 +77,7 @@ module.exports.signin = function (req, res) {
     }
     return res.render('signin', {
         title: 'sign-in',
-        page_name : 'signin'
+        page_name: 'signin'
     })
 }
 
@@ -81,44 +87,44 @@ module.exports.create = async function (req, res) {
         return res.redirect('back');
     }
     // console.log(req.body);
-    try{
+    try {
         const user = await User.findOne({ email: req.body.email })
 
         if (!user) {
             const user = await User.create(req.body)
-            
+
             const profile = await Profile.create({
-                user : user.id
+                user: user.id
             })
 
             user.profile = profile._id;
             // console.log("User***",user);
             // console.log("Prof***",profile);
 
-            req.flash('success','SignUp Successfully!')
+            req.flash('success', 'SignUp Successfully!')
 
             user.save();
 
             return res.redirect('/users/signin');
         } else {
-            req.flash('error','User already exist!')
+            req.flash('error', 'User already exist!')
             return res.redirect('back');
         }
-    }catch(err){
-        console.log('ERROR!!',err);
+    } catch (err) {
+        console.log('ERROR!!', err);
     }
-    
+
 
 }
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
-    req.flash('success','Logged In Successfully!')
+    req.flash('success', 'Logged In Successfully!')
     return res.redirect('/');
 }
 
 module.exports.destroySession = function (req, res) {
     req.logout();
-    req.flash('success','You have Logged Out!');
+    req.flash('success', 'You have Logged Out!');
     res.redirect('/users/signin');
 }

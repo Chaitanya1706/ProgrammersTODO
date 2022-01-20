@@ -2,114 +2,29 @@ body{
   background-color: #e3e8ee
 }
 
-/* img:hover{
-  
-    filter: brightness(1.06) drop-shadow(0px 0px 30px #c0bdbd);
-
-} */
-.about-top{
-  
+.displayflex{
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  padding: 10px 0px;  
-  border-radius: 10px;
 }
 
 
-/* About Me 
----------------------*/
-.about-text{
-  margin-top: 40px;
-  
-}
-
-.about-text h3 {
-  font-size: 45px;
-  font-weight: 700;
-  margin: 0 0 6px;
-}
-.about-text h3 a{  
-  font-size: 25px;
-}
-@media (max-width: 767px) {
-  .about-text h3 {
-    font-size: 35px;
-  }
-}
-.about-text h6 {
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-@media (max-width: 767px) {
-  .about-text h6 {
-    font-size: 18px;
-  }
-}
-.about-text p {
-  font-size: 18px;
-  max-width: 600px;
-  
-}
-.about-text p mark {
-  font-weight: 600;
-  color: #20247b;
-}
-
-.about-list {
-  padding-top: 10px;
-}
-.about-list .media {
-  padding: 5px 0;
-}
-.about-list label {
-  color: #20247b;
-  font-weight: 600;
-  width: 88px;
-  margin: 0;
-  position: relative;
-  
-}
-.about-list label:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 11px;
-  width: 1px;
-  height: 12px;
-  background: #20247b;
-  -moz-transform: rotate(15deg);
-  -o-transform: rotate(15deg);
-  -ms-transform: rotate(15deg);
-  -webkit-transform: rotate(15deg);
-  transform: rotate(15deg);
-  margin: auto;
-  opacity: 0.5;
-}
-.about-list p {
-  margin: 0;
-  font-size: 15px;
-  color: #333333;
-}
-
-@media (max-width: 991px) {
-  .about-avatar {
-    margin-top: 30px;
-  }
+.about-avatar{
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  border: 2px solid #20247b;
+  object-fit: cover;
+  /* filter: drop-shadow(0 0 8px #ff5722); */
 }
 
 .counter {
  
   padding: 22px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  border-radius: 10px; 
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
+  align-items: center;  
   flex-wrap: wrap;
-
 }
 .counter .count-data {
   margin-top: 10px;
@@ -126,3 +41,14 @@ body{
 }
 
 
+.websitelink{
+  font-weight: 400;
+  color: #1266f1;
+  margin-bottom: 20px !important;
+}
+.text-dark{
+  margin: 0;
+  padding: 0%;
+  margin-bottom: 5px !important;
+  margin-top: -2px;
+}
