@@ -34,10 +34,14 @@ module.exports.profile = function (req, res) {
 module.exports.update = async function (req, res) {
 
         try{
-            console.log(req.files);
-            // await Profile.findByIdAndUpdate(req.params.id, req.body);
+            console.log('files***',req.files);
+            const r = req.files.map( f => f.path)
+            console.log("r****",r[0]);
+            req.body.img = r;
+            const p = await Profile.findByIdAndUpdate(req.params.id, req.body);
+            console.log("*******",p);
             req.flash('success','Profile Updated Successfully!!')
-            
+
             return res.redirect('/');
         }catch(err){
             req.flash('error',err);

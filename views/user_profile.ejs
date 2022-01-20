@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/profileForm.css">
 <div class="container">
     <div class="row about-top bg-c-yellow shd">
-        
+
         <div class="col-lg-3">
             <div class="about-avatar">
 
@@ -15,8 +15,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form action="/users/update" method="POST" novalidate class="needs-validation"
-                            enctype="multipart/form-data">
+                        <form action="/users/update" id="update_form" method="POST" enctype="multipart/form-data">
                             <div class="registration-form">
                                 <div class="form-icon">
                                     <span><i class="far fa-user"></i></span>
@@ -24,20 +23,21 @@
                                 <div class="form-group">
                                     <label class="form-label">Name</label>
 
-                                    <input type="text" class="form-control item" id="username" placeholder="Username"
-                                         value="<%= profile_user.username %> ">
+                                    <input type="text" class="form-control item" id="username" name="username" placeholder="Username"
+                                        value="<%= profile_user.username %> ">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Education</label>
 
-                                    <input type="Education" class="form-control item" id="password"
-                                       value="<%= profile_user.education %> " placeholder="Education">
+                                    <input type="Education" class="form-control item" id="password" name="education"
+                                        value="<%= profile_user.education %> " placeholder="Education">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label">Bio</label>
 
-                                    <textarea class="form-control item" id="bio" placeholder="Describe yourself here..."></textarea>
+                                    <textarea class="form-control item" id="bio" name="bio"
+                                        placeholder="Describe yourself here..."></textarea>
                                 </div>
 
                                 <div class="form-group" id="upload">
@@ -133,3 +133,9 @@
     </div>
 </div>
 <!-- </section> -->
+<script>
+    const formData = document.getElementById('update_form')
+    for (var value of formData.values()) {
+        console.log(value); 
+    }
+</script>

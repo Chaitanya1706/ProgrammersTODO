@@ -1,5 +1,5 @@
 const express = require('express');
-const passport = require('passport');
+const passport = require('../config/passport-local-strategy');
 
 const multer = require('multer')
 const { storage } = require('../cloudinary')
@@ -13,7 +13,7 @@ router.get('/profile', passport.checkAuthentication, usersController.profile);
 
 // router.get('/edit/:id',passport.checkAuthentication, usersController.edit);
 
-router.post('/update', passport.checkAuthentication, upload.array('image'), usersController.update)
+router.post('/update', passport.checkAuthentication, usersController.update)
 
 
 router.get('/signup',usersController.signup);

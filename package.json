@@ -25,6 +25,7 @@
     "mongoose": "^6.1.6",
     "multer": "^1.4.4",
     "multer-storage-cloudinary": "^4.0.0",
+    "parse-multipart-data": "^1.2.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
   }

@@ -3,6 +3,10 @@ const port = 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose')
+if(process.env.NODE_ENV != "production"){
+    require('dotenv').config();
+}
+
 
 // to parse the body into json format
 app.use(express.urlencoded());
@@ -65,6 +69,12 @@ const flash = require('connect-flash');
 app.use(flash());
 app.use(customMware.setFlash);
 
+// app.use((error,req,res,next)=>{
+//     console.log(error);
+//     res.send(error)
+//     next();
+// })
+
 //use express router
 app.use('/', require('./routes/index'));
 
@@ -74,3 +84,5 @@ app.listen(port, function (err) {
     }
     console.log('Server is up and running at port:', port);
 })
+
+
