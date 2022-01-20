@@ -224,3 +224,9 @@ body{
       opacity: .8 ;
     }
   }
+
+  .about{
+    position: absolute;
+    top: 88%;
+    right: 1%;
+  }
