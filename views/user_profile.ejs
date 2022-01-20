@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/profileForm.css">
 <div class="container">
     <div class="row about-top bg-c-yellow shd">
-        <a href="/users/edit/<%= profile_user.id %>"><i class="fas fa-user-edit"></i></a>
+        
         <div class="col-lg-3">
             <div class="about-avatar">
 
@@ -15,7 +15,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form action="/campgrounds" method="POST" novalidate class="needs-validation"
+                        <form action="/users/update" method="POST" novalidate class="needs-validation"
                             enctype="multipart/form-data">
                             <div class="registration-form">
                                 <div class="form-icon">
@@ -25,20 +25,19 @@
                                     <label class="form-label">Name</label>
 
                                     <input type="text" class="form-control item" id="username" placeholder="Username"
-                                        readonly value="Abhishek Tiwari">
+                                         value="<%= profile_user.username %> ">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Education</label>
 
                                     <input type="Education" class="form-control item" id="password"
-                                        placeholder="Education">
+                                       value="<%= profile_user.education %> " placeholder="Education">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label">Bio</label>
 
-                                    <textarea type="text" class="form-control item" id="bio"
-                                        placeholder="Describe yourself here..."> </textarea>
+                                    <textarea class="form-control item" id="bio" placeholder="Describe yourself here..."></textarea>
                                 </div>
 
                                 <div class="form-group" id="upload">
@@ -49,7 +48,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-block create-account">Update</button>
+                                    <button type="submit" class="btn btn-block create-account">Update</button>
                                 </div>
 
                             </div>

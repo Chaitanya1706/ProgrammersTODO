@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const Profile = require('../models/profile');
 
+const { cloudinary } = require('../cloudinary/index');
+
 module.exports.profile = function (req, res) {
 
     User.findById(req.user.id, function (err, user) {
@@ -14,34 +16,36 @@ module.exports.profile = function (req, res) {
 
 }
 
-module.exports.edit = async function(req,res){
+// module.exports.edit = async function(req,res){
 
-    try{
-        const user = await User.findById(req.params.id)
-        .populate('profile');
+//     try{
+//         const user = await User.findById(req.params.id)
+//         .populate('profile');
 
-        return res.render('user_edit',{
-            user : user
-        })
+//         return res.render('user_edit',{
+//             user : user
+//         })
 
-    }catch(err){
+//     }catch(err){
 
-    }
-}
+//     }
+// }
 
 module.exports.update = async function (req, res) {
-    if (req.user.profile == req.params.id) {
+
         try{
-            await Profile.findByIdAndUpdate(req.params.id, req.body);
+            console.log(req.files);
+            // await Profile.findByIdAndUpdate(req.params.id, req.body);
             req.flash('success','Profile Updated Successfully!!')
+            
             return res.redirect('/');
         }catch(err){
             req.flash('error',err);
         }
-        
-    } else {
-        return res.status(401).send('Unauthorized');
-    }
+
+        // profileimg = req.files.map( f => ({url : f.path , filename: f.filename }) );
+        // req.flash
+        //redirect back
 }
 
 module.exports.signup = function (req, res) {
@@ -80,8 +84,6 @@ module.exports.create = async function (req, res) {
             const user = await User.create(req.body)
             
             const profile = await Profile.create({
-                name : req.body.username,
-                email : req.body.email,
                 user : user.id
             })
 

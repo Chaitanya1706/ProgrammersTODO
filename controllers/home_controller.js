@@ -16,7 +16,7 @@ module.exports.home = async function (req, res) {
     else {
         
         const user = await User.findById(req.user.id)
-        .populate('questions').select("-password")
+        .populate('profile')
         // console.log("*******////****",user);
         return res.render('user_profile', {
             title: 'Home',

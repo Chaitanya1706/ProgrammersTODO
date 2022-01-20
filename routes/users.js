@@ -1,13 +1,19 @@
 const express = require('express');
 const passport = require('passport');
+
+const multer = require('multer')
+const { storage } = require('../cloudinary')
+const upload = multer({ storage })
+
 const router = express.Router();
 
 const usersController = require('../controllers/users_controller')
 
 router.get('/profile', passport.checkAuthentication, usersController.profile);
 
-router.get('/edit/:id',passport.checkAuthentication, usersController.edit);
-router.post('/update', passport.checkAuthentication, usersController.update);
+// router.get('/edit/:id',passport.checkAuthentication, usersController.edit);
+
+router.post('/update', passport.checkAuthentication, upload.array('image'), usersController.update)
 
 
 router.get('/signup',usersController.signup);
