@@ -1,15 +1,20 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-  }
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+ *, *:after, *:before {
+	 box-sizing: border-box;
+}
+ body {
+	 font-family: "DM Sans", sans-serif;
+	 line-height: 1.5;
+   background-color: #d7f2fb;
+
+	 
+}
+
   
   html {
     box-sizing: border-box;
   }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+
   
   .column {
     float: left;
@@ -26,10 +31,21 @@ body {
   .about-section {
     padding: 50px;
     text-align: center;
-    background-color: #474e5d;
+    background-color: #505052 !important;
     color: white;
   }
+  .card-body{
+    text-align: left;
+  }
+
+  .royal_blue {
+    color: #2c53c7;
+  }
   
+  .contactbtn{
+    width: 100%;
+    background-color: #3a3c42;
+  }
   .container {
     padding: 0 16px;
   }
@@ -79,3 +95,6 @@ body {
       display: block;
     }
   }
+
+
+  p{fontSize:"18px";fontStyle:"normal";fontVariant:"normal";fontWeight:"400";letterSpacing:"normal";lineHeight:"28.8px";textDecoration:"none solid rgba(0; 0; 0; 0.88)";textAlign:"start";textIndent:"0px";textTransform:"none";verticalAlign:"baseline";whiteSpace:"normal";wordSpacing:"0px";}

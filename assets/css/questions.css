@@ -111,6 +111,9 @@ border-radius: 50%;
   font-size: 0.8125rem;  
   font-weight: 600;
 }
+.widget-26-job-action{
+  white-space: nowrap;
+}
 .widget-26-job-action i{
   font-size: 18px;
 }
