@@ -27,6 +27,13 @@ module.exports.home = async function (req, res) {
 
 }
 
-module.exports.about = function(req,res){
-    return res.send("<h1>ABOUT</h1>")
+module.exports.about = async function(req,res){
+    try{
+        return res.render('about',{
+            title : 'About',
+            page_name : 'about'
+        })
+    }catch(err){
+        req.flash('error',err)
+    }
 }
