@@ -30,9 +30,7 @@
  .card-image {
 	 border-radius: 8px;
 	 overflow: hidden;
-	 padding-bottom: 55%;
-	 background-image: url('/img/signin.png');
-
+	 padding-bottom: 55%;	
 	 background-repeat: no-repeat;
 	 background-size: 120%;
 	 background-position: 27% 32%;

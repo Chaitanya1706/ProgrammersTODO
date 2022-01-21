@@ -23,15 +23,12 @@
     padding: 0 8px;
   }
   
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-  }
+
   
   .about-section {
     padding: 50px;
     text-align: center;
-    background-color: #505052 !important;
+    background-color: #12a396 !important;
     color: white;
   }
   .card-body{
@@ -43,8 +40,7 @@
   }
   
   .contactbtn{
-    width: 100%;
-    background-color: #3a3c42;
+    width: 60%;    
   }
   .container {
     padding: 0 16px;
@@ -97,4 +93,62 @@
   }
 
 
-  p{fontSize:"18px";fontStyle:"normal";fontVariant:"normal";fontWeight:"400";letterSpacing:"normal";lineHeight:"28.8px";textDecoration:"none solid rgba(0; 0; 0; 0.88)";textAlign:"start";textIndent:"0px";textTransform:"none";verticalAlign:"baseline";whiteSpace:"normal";wordSpacing:"0px";}
+p{
+  font-size:"18px";
+  font-style:"normal";
+  font-variant:"normal";
+  font-weight:"400";
+  letter-spacing:"normal";
+  line-height:"28.8px";
+  text-decoration:"none solid rgba(0; 0; 0; 0.88)";
+  text-align:"start";
+  text-indent:"0px";
+}
+    
+
+.bg-image{
+
+ 
+  overflow: hidden;
+  padding-bottom: 55%;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: 27% 32%;
+  position: relative;
+
+}
+
+
+.searchbar-highlight {
+  background-color: #102b55;
+  border: 2px solid white;
+  animation-name: glow;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  background-image: linear-gradient(
+    128deg, rgba(89, 72, 21, 0) 39%,
+    rgba(250, 245, 245, 0.8474025974025974)
+    46%, rgba(89, 72, 21, 0) 53%);
+animation-name: wavy;
+animation-duration: 6s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+}
+
+
+@keyframes wavy {
+  0% {
+      background-position: -400px 0px,
+      -400px 0px, -400px 0px, -400px 0px;
+  }
+  100% {
+      background-position: 800px 0px,
+      800px 0px, 800px 0px, 800px 0px;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  margin-top: 8px !important;
+}
