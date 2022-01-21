@@ -37,15 +37,15 @@ module.exports.update = async function (req, res) {
 
         const userprofile = await Profile.findById(req.user.profile);
         if (req.file) {
-            if (userprofile.img.filepath.length > 0) {
+            if (userprofile.img?.filepath?.length > 0) {
                 await cloudinary.uploader.destroy(userprofile.img.filename);
             }
             userprofile.img.filepath = req.file.path;
             userprofile.img.filename = req.file.filename
         }
-        userprofile.education = req.body.education
-        userprofile.bio = req.body.bio;
-        userprofile.website = req.body.website
+        userprofile.education = req.body.education || userprofile.education
+        userprofile.bio = req.body.bio || userprofile.bio
+        userprofile.website = req.body.website || userprofile.website
         userprofile.save()
 
 
@@ -53,6 +53,7 @@ module.exports.update = async function (req, res) {
 
         return res.redirect('/');
     } catch (err) {
+        console.log(err);
         req.flash('error', err);
         res.redirect('back')
     }
