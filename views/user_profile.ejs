@@ -64,7 +64,7 @@
 
                 </div>
             </div>
-            <img src="<%= profile_user.profile.img.filepath %>" class="float-start img-fluid about-avatar" title=""
+            <img src="<%= profile_user.profile? profile_user.profile.img.filepath : '/img/unknown_user.png'%>" class="float-start img-fluid about-avatar" title=""
                 alt="">
 
         </div>
