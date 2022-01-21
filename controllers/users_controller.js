@@ -43,9 +43,9 @@ module.exports.update = async function (req, res) {
             userprofile.img.filepath = req.file.path;
             userprofile.img.filename = req.file.filename
         }
-        userprofile.education = req.body.education || userprofile.education
-        userprofile.bio = req.body.bio || userprofile.bio
-        userprofile.website = req.body.website || userprofile.website
+        userprofile.education = req.body.education
+        userprofile.bio = req.body.bio
+        userprofile.website = req.body.website
         userprofile.save()
 
 
