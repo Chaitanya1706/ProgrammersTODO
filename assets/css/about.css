@@ -26,10 +26,17 @@
 
   
   .about-section {
+    margin-top: 30px;
     padding: 50px;
     text-align: center;
     background-color: #12a396 !important;
     color: white;
+  }
+
+  @media(max-width:900px){
+    .about-section{
+      padding: 20px;
+    }
   }
   .card-body{
     text-align: left;
