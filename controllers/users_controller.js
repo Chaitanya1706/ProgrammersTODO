@@ -34,23 +34,27 @@ module.exports.profile = function (req, res) {
 module.exports.update = async function (req, res) {
 
     try {
-        req.body.img = req.file.path;
-        const userprofile = await Profile.findById(req.user.profile);
-        if (userprofile.img.filepath.length > 0) {
-            await cloudinary.uploader.destroy(userprofile.img.filename);
-        }
 
+        const userprofile = await Profile.findById(req.user.profile);
+        if (req.file) {
+            if (userprofile.img.filepath.length > 0) {
+                await cloudinary.uploader.destroy(userprofile.img.filename);
+            }
+            userprofile.img.filepath = req.file.path;
+            userprofile.img.filename = req.file.filename
+        }
+        userprofile.education = req.body.education
         userprofile.bio = req.body.bio;
         userprofile.website = req.body.website
-        userprofile.img.filepath = req.file.path;
-        userprofile.img.filename = req.file.filename
         userprofile.save()
+
 
         req.flash('success', 'Profile Updated Successfully!!')
 
         return res.redirect('/');
     } catch (err) {
         req.flash('error', err);
+        res.redirect('back')
     }
 
     // profileimg = req.files.map( f => ({url : f.path , filename: f.filename }) );
@@ -94,7 +98,8 @@ module.exports.create = async function (req, res) {
             const user = await User.create(req.body)
 
             const profile = await Profile.create({
-                user: user.id
+                user: user.id,
+                education: req.body.education
             })
 
             user.profile = profile._id;

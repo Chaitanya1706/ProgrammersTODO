@@ -9,8 +9,8 @@ body{
 
 
 .about-avatar{
-  width: 175px;
-  height: 175px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   border: 2px solid #20247b;
   object-fit: cover;

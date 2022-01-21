@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="/css/profile.css">
 <link rel="stylesheet" href="/css/profileForm.css">
 <div class="container profile">
-    <div class="row card d-flex flex-lg-row flex-md-row flex-sm-column">
+    <div class="row card d-flex flex-lg-row flex-md-row flex-sm-column" onload="myFunction()">
 
-        <div class="col-lg-1 card-body">
+        <div class="col-lg-2 card-body d-flex justify-content-center align-content-between">
 
             <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -28,7 +28,7 @@
                                 <label class="form-label">Education</label>
 
                                 <input type="text" class="form-control item" id="Education" name="education"
-                                    value="<%= profile_user.education %> " placeholder="Education">
+                                    value="<%= profile_user.profile.education %> " placeholder="Education">
                             </div>
 
                             <div class="form-group">
@@ -64,34 +64,44 @@
 
                 </div>
             </div>
-            <img src="<%= profile_user.profile.img.filepath %>" class="float-start img-fluid about-avatar" title=""
-                alt="">
+            <img src="<%= profile_user.profile?.img?.filepath || '/img/logo.png' %>"
+                class="float-start img-fluid about-avatar" title="" alt="">
 
         </div>
         <div class="col-lg-8 card-body">
             <h4 class="card-title dark-color fade-in-left">
                 <%= profile_user.username %>
 
-                    <a type="button" class="edit btn-floating btn-blue-grey btn-sm" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <span type="button" id="EditProfile" class="edit btn-floating btn-blue-grey btn-sm"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                        aria-controls="offcanvasWithBothOptions">
                         <i class="fas fa-edit"> </i>
-                    </a>
+                    </span>
             </h4>
 
 
             <h6 class="text-dark">
-                <%= profile_user.education %>
+                <%= profile_user.profile.education %>
             </h6>
-            <div class="websitelink">
-                <a target="_blank" href=" <%=profile_user.profile.website%>"> <i class="fas fa-external-link-alt"></i>
-                    <%=profile_user.profile.website%>
-                </a>
-            </div>
+            <%if(profile_user.profile?.website){%>
 
-            <p>
-                <%= profile_user.profile.bio %>
-            </p>
-
+                <div class="websitelink">
+                    <a target="_blank" href=" <%=profile_user.profile.website%>"> <i
+                            class="fas fa-external-link-alt"></i>
+                        <%=profile_user.profile.website%>
+                    </a>
+                </div>
+                <%}%>
+                    <%if(profile_user.profile.bio){%>
+                        <p class="textbio">
+                            <%= profile_user.profile.bio %>
+                        </p>
+                        <%}else{%>
+                            <p class="text-muted">Add
+                                Your Bio
+                                and Upate Your
+                                ProfilePhoto </p>
+                            <%}%>
 
 
         </div>
@@ -147,5 +157,7 @@
 </div>
 <!-- </section> -->
 <script>
-
+    function myFunction() {
+        alert("Page is loaded");
+    }
 </script>
