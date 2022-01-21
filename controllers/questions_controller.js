@@ -40,17 +40,28 @@ module.exports.markdone = async function (req, res) {
     const marktodo = req.body;
     console.log(marktodo);
 
-    const updateres = await Question.updateMany(
-        {
-            _id: {
-                $in: marktodo.mark
-            }
-        },
-        { $set: { status: "SOLVED", lastsolved: new Date() } }
-        , { multi: true }
+    marktodo.mark.map(async (id) => {
+        const q = await Question.findById(id);
+        console.log(q.status);
+        if (q.status == 'SOLVED') {
+            console.log("solve match");
+            await User.findByIdAndUpdate(req.user.id, { $pull: { solved: id }, $push: { solved: id } })
+        }
+        else if (q.status == 'UNSOLVED') {
+            console.log("unsolved match");
+            await User.findByIdAndUpdate(req.user.id, { $pull: { unsolved: id }, $push: { solved: id } })
+        }
+        else if (q.status == 'RETRY') {
+            console.log("retry match");
+            await User.findByIdAndUpdate(req.user.id, { $pull: { retry: id }, $push: { solved: id } })
+        }
 
-    )
-    console.log(updateres);
+        q.status = "SOLVED";
+        q.lastsolved = new Date();
+        await q.save()
+
+    })
+
     return res.redirect('/questions/todo');
 
 }
@@ -179,3 +190,47 @@ module.exports.update = async function (req, res) {
         req.flash('error', err)
     }
 }
+
+
+// const marktodo = req.body;
+// console.log(marktodo);
+// const user = await User.findById(req.user.id);
+
+// console.log(user);
+// marktodo.mark.map(async (id) => {
+//     const q = await Question.findById(id);
+//     console.log(q.status);
+//     if (q.status == 'SOLVED') {
+//         user.solved = user.solved.remove(id)
+//     }
+//     else if (q.status == 'UNSOLVED') {
+//         user.unsolved = user.unsolved.remove(id)
+//     }
+//     else if (q.status == 'RETRY') {
+//         user.retry = user.retry.remove(id)
+//     }
+//     console.log(user);
+//     user.solved.push(id);
+//     console.log(user);
+//     q.status = "SOLVED";
+//     q.lastsolved = new Date();
+//     await q.save()
+
+
+// })
+
+// await user.save()
+
+// console.log(user);
+// // const updateres = await Question.updateMany(
+// //     {
+// //         _id: {
+// //             $in: marktodo.mark
+// //         }
+// //     },
+// //     { $set: { status: "SOLVED", lastsolved: new Date() } }
+// //     , { multi: true }
+
+// // )
+// // console.log(updateres);
+// return res.redirect('/questions/todo');
