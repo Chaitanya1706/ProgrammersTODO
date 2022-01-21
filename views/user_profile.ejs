@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/profile.css">
 <link rel="stylesheet" href="/css/profileForm.css">
 <div class="container profile">
-    <div class="row card d-flex flex-lg-row flex-md-row flex-sm-column">
+    <div class="row card d-flex flex-lg-row flex-md-row flex-sm-column" onload="myFunction()">
 
         <div class="col-lg-2 card-body d-flex justify-content-center align-content-between">
 
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <img src="<%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %>"
-                class="float-start img-fluid about-avatar" title="" alt="">
+                class="float-start img-fluid about-avatar" draggable="false" alt="proflephoto">
 
         </div>
         <div class="col-lg-8 card-body">
@@ -156,3 +156,8 @@
     </div>
 </div>
 <!-- </section> -->
+<script>
+    function myFunction() {
+        alert("Page is loaded");
+    }
+</script>

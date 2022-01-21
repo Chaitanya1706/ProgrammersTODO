@@ -1,55 +1,53 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    username : {
-        type : String,
-        required : true
+    username: {
+        type: String,
+        required: true
     },
-    email : {
-        type : String,
-        required : true
+    email: {
+        type: String,
+        required: true
     },
-    password : {
-        type : String,
-        required : true
+    password: {
+        type: String,
+        required: true
     },
-    education : {
-        type : String
-    },
-    questions : [
+
+    questions: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'Question'
-        } 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Question'
+        }
     ],
-    solved : [
+    solved: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'Question'
-        } 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Question'
+        }
     ],
-    unsolved : [
+    unsolved: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'Question'
-        } 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Question'
+        }
     ],
-    retry : [
+    retry: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'Question'
-        } 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Question'
+        }
     ],
-    profile : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Profile'
+    profile: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profile'
     }
 
 },
-{
-    timestamps : true
-})
+    {
+        timestamps: true
+    })
 
-const User = mongoose.model('User',userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -8,6 +8,9 @@ const profileSchema = new mongoose.Schema({
         filename: String,
         filepath: String
     },
+    education: {
+        type: String
+    },
     website: {
         type: String
     },

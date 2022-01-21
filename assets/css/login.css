@@ -17,7 +17,7 @@
 	 border-radius: 0;
 }
  .card {
-	 margin: 2rem auto;
+	 margin: 0rem auto;
 	 display: flex;
 	 flex-direction: column;
 	 width: 100%;
@@ -30,17 +30,18 @@
  .card-image {
 	 border-radius: 8px;
 	 overflow: hidden;
-	 padding-bottom: 65%;
-	 background-image: url('https://assets.codepen.io/285131/coffee_1.jpg');
+	 padding-bottom: 55%;
+	 background-image: url('/img/signin.png');
+
 	 background-repeat: no-repeat;
-	 background-size: 150%;
-	 background-position: 0 5%;
+	 background-size: 120%;
+	 background-position: 27% 32%;
 	 position: relative;
 }
  .card-heading {
 	 position: absolute;
-	 left: 10%;
-	 top: 15%;
+	 left: 1%;
+	 top: 13%;
 	 right: 10%;
 	 font-size: 1.75rem;
 	 font-weight: 700;
