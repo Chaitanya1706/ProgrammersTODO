@@ -153,6 +153,7 @@ border-radius: 50%;
 .solved{
   background-color: #e7feee;
     color: #158f54 !important;
+    
 }
 .unsolved{
   background-color: #d7efff;
