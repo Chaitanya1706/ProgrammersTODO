@@ -45,6 +45,8 @@
   .contactbtn{
     width: 100%;
     background-color: #3a3c42;
+    border: none;
+    outline: none;
   }
   .container {
     padding: 0 16px;
