@@ -65,7 +65,7 @@
                 </div>
             </div>
             <img src="<%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %>"
-                class="float-start img-fluid about-avatar" draggable="false" alt="proflephoto">
+                class="float-start img-fluid about-avatar" draggable="false " alt="proflephoto">
 
         </div>
         <div class="col-lg-8 card-body">
@@ -97,6 +97,7 @@
                             <%= profile_user.profile.bio %>
                         </p>
                         <%}else{%>
+
                             <p class="text-muted">Add
                                 Your Bio
                                 and Upate Your
@@ -156,8 +157,4 @@
     </div>
 </div>
 <!-- </section> -->
-<script>
-    function myFunction() {
-        alert("Page is loaded");
-    }
-</script>
+<script src="/js/userprofile.js"></script>
