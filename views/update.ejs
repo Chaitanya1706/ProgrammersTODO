@@ -1,73 +1,75 @@
 <link rel="stylesheet" href="/css/addquestion.css">
-<div class="container">
+<div class="container my-2">
     <div class="row d-flex justify-content-center">
         <div class="col-lg-7 col-sm-11 card required">
-            <form action="/questions/update/<%= ques.id %> %>  " method="post">
-                <div class="col-md-12  mb-3">
-                    <label class="form-label" for="name">Question Name</label>
-                    <input class="form-control" type="text" name="name" id="name" value="<%= ques.name %>"
-                        placeholder="Write question name" required>
-
-                </div>
-                <div class="col-md-12  mb-3">
-
-                    <label class="form-label" for="link">Question Link</label>
-                    <input class="form-control" type="url" name="link" id="link" value="<%= ques.link %> "
-                        placeholder="Add question link here.." required>
-
-                </div>
-
-
-
-
-                <div class="row  mb-3">
-                    <div class="col-md-6">
-                        <label for="status" class="form-label">Question Status </label>
-                        <select id="status" class="form-select" name="status" id="status">
-                            <option value="SOLVED" <%=ques.status==='SOLVED' && 'selected' %>>SOLVED</option>
-                            <option value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED</option>
-                            <option value="RETRY" <%=ques.status==='RETRY' && 'selected' %>>RETRY</option>
-                        </select>
+            <div class="card-body">
+                <form action="/questions/update/<%= ques.id %> %>  " method="post">
+                    <div class="col-md-12  mb-3">
+                        <label class="form-label" for="name">Question Name</label>
+                        <input class="form-control" type="text" name="name" id="name" value="<%= ques.name %>"
+                            placeholder="Write question name" required>
 
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label" for="deadline">Deadline </label>
-                        <input type="date" class="form-control" id="deadline" value="<%= ques.deadline %> "
-                            name="deadline">
+                    <div class="col-md-12  mb-3">
+
+                        <label class="form-label" for="link">Question Link</label>
+                        <input class="form-control" type="url" name="link" id="link" value="<%= ques.link %> "
+                            placeholder="Add question link here.." required>
+
                     </div>
-                </div>
-                <div class="col-md-12  mb-3">
-                    <label for="topic">Topic</label>
-                    <input type="text" id="topic" class="form-control" value="<%= ques.topic %> "
-                        placeholder="Enter Category or Topic" name="topic">
-                </div>
-
-                <div class="col-md-12  mb-3">
-
-                    <label class="form-label" for="desc">Description (Optional)</label>
-                    <textarea class="form-control" name="description" id="desc"
-                        rows="<%- ques.description.length==0 ? 1 : 5%>"
-                        placeholder="Question Description"><%= ques.description %></textarea>
-
-                </div>
 
 
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <input type="submit" value="Update Question" id="submit" name="submit" class="btn btn-primary">
 
-                        <button type="reset" id="clear" name="clear" class="btn btn-secondary">
-                            Cancel
-                        </button>
+
+                    <div class="row  mb-3">
+                        <div class="col-md-6">
+                            <label for="status" class="form-label">Question Status </label>
+                            <select id="status" class="form-select" name="status" id="status">
+                                <option value="SOLVED" <%=ques.status==='SOLVED' && 'selected' %>>SOLVED</option>
+                                <option value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED</option>
+                                <option value="RETRY" <%=ques.status==='RETRY' && 'selected' %>>RETRY</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="deadline">Deadline </label>
+                            <input type="date" class="form-control" id="deadline" value="<%= ques.deadline %> "
+                                name="deadline">
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="col-md-12  mb-3">
+                        <label for="topic">Topic</label>
+                        <input type="text" id="topic" class="form-control" value="<%= ques.topic %> "
+                            placeholder="Enter Category or Topic" name="topic">
+                    </div>
+
+                    <div class="col-md-12  mb-3">
+
+                        <label class="form-label" for="desc">Description (Optional)</label>
+                        <textarea class="form-control" name="description" id="desc"
+                            rows="<%- ques.description.length==0 ? 1 : 5%>"
+                            placeholder="Question Description"><%= ques.description %></textarea>
+
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <input type="submit" value="Update Question" id="submit" name="submit"
+                                class="btn btn-primary">
+
+                            <button type="reset" id="clear" name="clear" class="btn btn-secondary">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
 
+
+
+
     </div>
-
-
-
-
-</div>
-<script src="/js/update.js"></script>
+    <script src="/js/update.js"></script>

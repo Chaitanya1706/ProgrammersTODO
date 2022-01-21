@@ -9,11 +9,20 @@ body{
 
 
 .about-avatar{
-  width: 165px;
+  
   height: 175px;
-  border-radius: 50%;  
+  width:180px;
+   border-radius: 10px;
   object-fit: cover;
   /* filter: drop-shadow(0 0 8px #ff5722); */
+}
+@media(max-width: 600px) {
+  .about-avatar{
+  
+    height: 125px;
+    width: 130px;
+    /* filter: drop-shadow(0 0 8px #ff5722); */
+  }
 }
 
 .counter {
@@ -24,6 +33,7 @@ body{
   justify-content: space-around;
   align-items: center;  
   flex-wrap: wrap;
+  flex-direction: row;
 }
 .counter .count-data {
   margin-top: 10px;

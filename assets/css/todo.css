@@ -20,11 +20,18 @@ body{
     width: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
+@media(max-width:700px){
+    .card-block{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
 .box-header {
-    color: #444;
-    display: block;
-    padding: 10px;
+    color: #444;        
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .box-header>.ion {
     margin-right: 5px;
