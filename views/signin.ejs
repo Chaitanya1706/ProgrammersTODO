@@ -9,7 +9,7 @@
 
 <div class="container">
     <!-- code here -->
-    <div class="card mt-lg-2 mt-sm-1">
+    <div class="card mt-4">
         <div class="card-image">
             <h2 class="card-heading">
                 Get started
@@ -17,7 +17,7 @@
             </h2>
         </div>
 
-        <form class="card-form" action="/users/create-session" method="post">
+        <form id="loginForm" class="card-form" action="/users/create-session" method="post">
             <div class="input">
 
                 <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="email"
@@ -36,16 +36,15 @@
             </div>
 
             <div class="action">
-                <button class="action-button">Get started</button>
+                <button type="submit" form="loginForm" class="action-button">Get started</button>
+                <button type="button" class="btn btn-link mt-4" onclick="guestLogin()">Guest Login</button>
             </div>
         </form>
 
 
     </div>
-    <div class="alert alert-warning" role="alert">
-        <p>Email : guestuser@gmail.com</p>
-        <p>Password: 12345</p>
-    </div>
+
 </div>
 
+<script src="/js/login.js"></script>
 <!-- https://www.javascripttutorial.net/javascript-dom/javascript-form/ -->

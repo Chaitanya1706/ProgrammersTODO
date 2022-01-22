@@ -55,7 +55,7 @@
 
                 <input type="text" class="input-field" required name="education" list="education">
                 <label class="input-label">Education</label>
-                <datalist id="education">
+                <datalist id="education" style="max-height: 90px;">
                     <option value="1st sem, 1st year, B.Tech">
                     <option value="2nd sem, 1st year, B.Tech">
                     <option value="3rd sem, 2nd year, B.Tech">
@@ -95,6 +95,8 @@
 
             <div class="action">
                 <button class="action-button">Sign Up</button>
+                <a href="/users/signin" type="button" class="btn btn-link mt-4">
+                    <i class="fas fa-arrow-left"></i> Guest Login</a>
             </div>
         </form>
 

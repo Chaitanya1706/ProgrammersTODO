@@ -5,13 +5,13 @@
 <div class="container mt-4">
     <div class="row card">
         <div class="card-block ">
-            <div class="box box-aqua vh-65">
+            <div class="box box-aqua">
                 <div class="box-header d-flex flex-row">
-                    <div>
+                    <div class="todo">
                         <i class="fa fa-clipboard"></i>
-                        <h3 class="d-inline box-title">To Do List</h3>
+                        <h3 class="d-inline box-title">Today Task List</h3>
                     </div>
-                    <span class="text-body">
+                    <span class="fw-bold link-primary">
                         <%= new Date().toDateString() %>
                     </span>
                     <div class="p-2">
@@ -27,12 +27,13 @@
                 </div>
                 <form action="/questions/todo/markdone" method="POST">
                     <div class="box-body">
-                        <ul class="todo-list ui-sortable">
+                        <ul class="list-group list-group-numbered">
 
                             <% todo.forEach(function(item,i){%>
-                                <li>
+                                <li class="list-group-item list-group-item-secondary">
 
-                                    <input type="checkbox" id="todo-<%=i%>" name="mark[]" value="<%=item._id%>">
+                                    <input class="form-check-input me-1" type="checkbox" id="todo-<%=i%>" name="mark[]"
+                                        value="<%=item._id%>">
                                     <!-- <input type="checkbox" value="" name=""> -->
                                     <a href="<%=item.link%>" class="text">
                                         <%=item.name%>
@@ -60,7 +61,7 @@
 
                         <%} else { %>
 
-                            <div class="text_green_1 display-6  text-center"> No Work For Revision</div>
+                            <div class="text_green_1 display-4  text-center"> No Work For Revision</div>
                             <% } %>
 
 
