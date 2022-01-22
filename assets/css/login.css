@@ -117,3 +117,9 @@
 	 text-decoration: none;
 }
  
+
+@media(max-width:700px){
+	.card-heading small{
+		display: none;
+	}
+}
