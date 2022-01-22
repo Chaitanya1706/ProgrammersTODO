@@ -29,16 +29,8 @@
 <body>
     <%- include('navbar'); %>
         <% if(locals.page_name!='about' ){ %>
-
-            <div class="fixed-action-btn">
-
-
-                <a href="/about" class="btn btn-floating btn-primary btn-lg">
-                    <i class="fas fa-question-circle"></i></a>
-                </a>
-
-            </div>
-
+            <a type="button" href="/about" class="btn-floating dark-color about-btn ripple"><i
+                    class="fas fa-question-circle"></i></a>
             <% } %>
 
                 <main id="layout_main">
