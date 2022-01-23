@@ -103,19 +103,6 @@ body{
   color: #0062cc;
 }
 
-mark {
-  font-weight: 600;
-  color: #20247b !important;
-
-  background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-  background-size: 100% 3px;
-  background-repeat: no-repeat;
-  background-position: 0 bottom;
-  background-color: transparent;
-  padding: 0;
-  color: currentColor;
-}
-
 .anchor{
   text-decoration: none;
   color: black;
