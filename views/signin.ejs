@@ -16,6 +16,7 @@
                 <small>Lets get Started</small>
             </h2>
         </div>
+        <button type="button" class="btn btn-link my-2" onclick="guestLogin()">Guest Login</button>
 
         <form id="loginForm" class="card-form" action="/users/create-session" method="post">
             <div class="input">
@@ -24,7 +25,10 @@
                     class="input-field" required name="email" id="email">
 
                 <label class="input-label">Email</label>
+
             </div>
+
+
             <div class="input">
 
 
@@ -36,8 +40,11 @@
             </div>
 
             <div class="action">
-                <button type="submit" form="loginForm" class="action-button">Get started</button>
-                <button type="button" class="btn btn-link mt-4" onclick="guestLogin()">Guest Login</button>
+
+                <button type="submit" form="loginForm" class="action-button">Get started
+
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>
             </div>
         </form>
 

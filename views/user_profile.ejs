@@ -2,97 +2,145 @@
 <link rel="stylesheet" href="/css/profileForm.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<section class="section about-section gray-bg" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex row flex-md-row flex-sm-column justify-content-center">
-                <div class="col-4">
-                    <div class="about-avatar d-flex align-items-center">
-                        <img src="<%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %>"
-                            class="rounded-circle img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="about-text go-to">
-                        <h3 class="dark-color display-5">
-                            <%= profile_user.username %>
-                                <span type="button" id="EditProfile" class="edit btn-floating btn-blue-grey btn-sm"
-                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-                                    aria-controls="offcanvasWithBothOptions">
-                                    <i class="fas fa-edit"> </i>
-                                </span>
-                        </h3>
-                        <h6 class="theme-color lead">
-                            <%= profile_user.profile.education %>
-                        </h6>
 
-                        <%if(profile_user.profile?.website){%>
 
-                            <div class="websitelink">
-                                <a target="_blank" href=" <%=profile_user.profile.website%>"> <i
-                                        class="fas fa-external-link-alt"></i>
-                                    <%=profile_user.profile.website%>
-                                </a>
-                            </div>
+<div class="container emp-profile section about-section">
+    <!-- <form method="post"> -->
+    <div class="row">
+        <div class="col-lg-4 col-sm-12">
+            <div class="profile-img">
+                <img src="<%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %>" alt="" />
+                <!-- <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div> -->
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <div class="profile-head">
+                <h5 class="d-flex align-items-center">
+                    <span>
+                        <%= profile_user.username %>
+                    </span>
+
+                    <a style="color: #3931af;" href="#" role="button" class="btn-link btn-floating" id="EditProfile"
+                        class="edit btn-floating btn-blue-grey" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                        name="btnAddMore" value="Edit Profile">
+                        <i class="fas fa-edit"> </i>
+                    </a>
+                </h5>
+                <h6>
+                    <%= profile_user.profile.education %>
+                </h6>
+                <p class="proile-rating">
+                    <%if(profile_user.profile?.website){%>
+                        <div class="link-light">
+                            <a target="_blank" href=" <%=profile_user.profile.website%>"> <i
+                                    class="fas fa-external-link-alt"></i>
+                                <%=profile_user.profile.website%>
+                            </a>
+                        </div>
+                        <%}%>
+                </p>
+                <hr />
+                <%if(profile_user._id=='61ebb6594590e3df4eece8f2' ){%>
+                    <p style="white-space: pre-line;">
+                        <%- profile_user.profile.bio%>
+                    </p>
+                    <%}else if(profile_user.profile.bio){%>
+                        <p>
+                            <%= profile_user.profile.bio%>
+                        </p>
+                        <%}else{%>
+
+                            <p class="text-muted">
+                                Complete Your Profile By Clicking Edit Button </p>
                             <%}%>
 
-                                <%if(profile_user.profile.bio){%>
-                                    <p>
-                                        <%= profile_user.profile.bio %>
-                                    </p>
-                                    <%}else{%>
+            </div>
+        </div>
 
-                                        <p class="text-muted">
-                                            Complete Your Profile By Clicking Edit Button </p>
-                                        <%}%>
+    </div>
+    <div class="row mt-5">
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+                            <i class="fas fa-list-ol text-info fa-3x"></i>
 
-
-
+                        </div>
+                        <div class="text-end">
+                            <h3>
+                                <%=profile_user.questions.length%>
+                            </h3>
+                            <p class="mb-0">Total Question </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+                            <i class="fas fa-chart-line text-success fa-3x"></i>
 
-
-        <div class="counter">
-            <div class="row">
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="500" data-speed="500">
-
-                            <%=profile_user.questions.length%>
-
-                        </h6>
-                        <p class="m-0px font-w-600">Total Question</p>
+                        </div>
+                        <div class="text-end">
+                            <h3>
+                                <%=profile_user.solved.length%>
+                            </h3>
+                            <p class="mb-0">Solved</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="150" data-speed="150">
-                            <%=profile_user.solved.length%>
-                        </h6>
-                        <p class="m-0px font-w-600">Solved</p>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+                            <i class="fas fa-cogs text-warning fa-3x"></i>
+                        </div>
+                        <div class="text-end">
+                            <h3>
+                                <%=profile_user.unsolved.length%>
+
+                            </h3>
+                            <p class="mb-0">UnSolved</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="850" data-speed="850">
-                            <%=profile_user.unsolved.length%>
-                        </h6>
-                        <p class="m-0px font-w-600">UnSolved</p>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="count-data text-center">
-                        <h6 class="count h2" data-to="190" data-speed="190">
-                            <%=profile_user.retry.length%>
-                        </h6>
-                        <p class="m-0px font-w-600">Redo</p>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+
+
+                            <i class="fas fa-sync-alt text-danger fa-3x"></i>
+                        </div>
+                        <div class="text-end">
+                            <h3>
+                                <%=profile_user.retry.length%>
+                            </h3>
+                            <p class="mb-0">Redo</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
@@ -129,8 +177,8 @@
                         <label class="form-label">Bio</label>
 
                         <textarea class="form-control item" id="bio" name="bio" placeholder="Describe yourself here..."
-                            <%- profile_user._id=='61ebb6594590e3df4eece8f2' ?'readonly':'' %>
-                        ><%= profile_user.profile.bio%></textarea>
+                            <%- profile_user._id=='61ebb6594590e3df4eece8f2' ?'radonly':'' %>
+                    ><%= profile_user.profile.bio%></textarea>
                     </div>
 
                     <div class="form-group" id="upload">
@@ -150,7 +198,7 @@
 
         </div>
     </div>
+</div>
 
-</section>
 
 <script src="/js/userprofile.js"></script>

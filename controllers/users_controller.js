@@ -77,6 +77,7 @@ module.exports.signup = function (req, res) {
 
 module.exports.signin = function (req, res) {
     // console.log("logged in");
+    console.log(req.body);
     if (req.isAuthenticated()) {
         return res.redirect(`/`);
     }

@@ -79,6 +79,15 @@
 	 font: inherit;
 	 font-size: 1.125rem;
 	 padding: 0.25rem 0;
+	 animation: typing 3.5s steps(30, end);
+}
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
 }
  .input-field:focus, .input-field:valid {
 	 outline: 0;

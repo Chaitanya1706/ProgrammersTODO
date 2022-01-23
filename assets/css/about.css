@@ -129,8 +129,7 @@ p{
 
 
 .searchbar-highlight {
-  background-color: #102b55;
-  border: 2px solid white;
+  background-color: #102b55;  
   animation-name: glow;
   animation-fill-mode: forwards;
   animation-duration: 3s;
@@ -142,6 +141,7 @@ animation-name: wavy;
 animation-duration: 6s;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
+margin: 10px 10px;
 }
 
 
