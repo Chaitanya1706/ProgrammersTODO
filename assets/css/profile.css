@@ -13,8 +13,8 @@ body{
 }
 .emp-profile{
   padding: 3%;
-  margin-top: 3%;
-  margin-bottom: 0%;
+  margin-top: 10px;
+  margin-bottom: 5px;
   border-radius: 0.5rem;
   background: #fff;
 }
