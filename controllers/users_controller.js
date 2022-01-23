@@ -12,8 +12,6 @@ module.exports.profile = function (req, res) {
             profile_user: user
         });
     });
-
-
 }
 
 // module.exports.edit = async function(req,res){
@@ -58,9 +56,6 @@ module.exports.update = async function (req, res) {
         res.redirect('back')
     }
 
-    // profileimg = req.files.map( f => ({url : f.path , filename: f.filename }) );
-    // req.flash
-    //redirect back
 }
 
 module.exports.signup = function (req, res) {

@@ -115,3 +115,8 @@ mark {
   padding: 0;
   color: currentColor;
 }
+
+.anchor{
+  text-decoration: none;
+  color: black;
+}

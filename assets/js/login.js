@@ -7,7 +7,7 @@ function guestLogin() {
     let passwordinput = document.getElementById('password')
     emailinput.focus();
 
-    const myInterval = setInterval(myTimer, 50);
+    const myInterval = setInterval(myTimer, 60);
 
     function myTimer() {
         if (index < email.length) {
