@@ -18,12 +18,24 @@ body{
   border-radius: 0.5rem;
   background: #fff;
 }
+
 .profile-img{
   text-align: center;
+  max-height: 300px;
+  max-width: 350px;
+  
 }
 .profile-img img{
-  width: 70%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 15px;
+  background-size: auto;
+  background-position: center;
+
+  background-color: #e4f0f6;
+  border: none;
+  outline: none;
 }
 .profile-img .file {
   position: relative;
@@ -41,6 +53,7 @@ body{
   right: 0;
   top: 0;
 }
+
 .profile-head h5{
   color: #333;
 }

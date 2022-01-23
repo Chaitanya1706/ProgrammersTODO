@@ -305,3 +305,14 @@ mark {
   padding: 0;
   color: currentColor;
 }
+
+.transparentbtn{
+  background-color: white;
+  box-shadow: none;
+}
+.transbtn:focus , .transbtn:active{
+  box-shadow:none !important;
+  outline:none;
+  -webkit-appearance: none;
+  
+}

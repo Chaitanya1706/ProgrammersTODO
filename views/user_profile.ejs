@@ -9,7 +9,11 @@
     <div class="row">
         <div class="col-lg-4 col-sm-12">
             <div class="profile-img">
-                <img src="<%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %>" alt="" />
+                <img src="<%- profile_user.profile?.img?.filepath    || '/img/unknown_user.png' %>" alt="" class=""
+                    srcset="
+                <%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %> 1.5x,
+                <%= profile_user.profile?.img?.filepath || '/img/unknown_user.png' %> 2x,                
+              " />
                 <!-- <div class="file btn btn-lg btn-primary">
                         Change Photo
                         <input type="file" name="file" />
@@ -23,12 +27,12 @@
                         <%= profile_user.username %>
                     </span>
 
-                    <a style="color: #3931af;" href="#" role="button" class="btn-link btn-floating" id="EditProfile"
-                        class="edit btn-floating btn-blue-grey" data-bs-toggle="offcanvas"
+                    <button style="color: #3931af;" role="button" class="btn btn-link btn-floating transparentbtn"
+                        id="EditProfile" class="edit btn-floating btn-blue-grey" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
                         name="btnAddMore" value="Edit Profile">
                         <i class="fas fa-edit"> </i>
-                    </a>
+                    </button>
                 </h5>
                 <h6>
                     <%= profile_user.profile.education %>
