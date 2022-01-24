@@ -80,14 +80,28 @@ module.exports.create = async function (req, res) {
     // console.log(req.body);
     try {
         req.body.userid = req.user._id
+        console.log("request received");
+        if (["SOLVED", "RETRY"].includes(req.body.status)) {
+            req.body.lastsolved = new Date();
+        }
+        console.log("date set", req.body);
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
+        if (req.body.status == "SOLVED") {
+            user.solved.push(question.id);
+        }
+        else if (req.body.status == "RETRY") {
+            user.retry.push(question.id);
+        }
+        else {
+            user.unsolved.push(question.id);
+        }
         user.questions.push(question.id);
 
-        user.unsolved.push(question.id);
-
         req.flash('success', 'New Question Added Successfully')
+        console.log(user);
+        console.log(question);
 
         user.save();
 
