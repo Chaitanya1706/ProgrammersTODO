@@ -84,7 +84,7 @@ module.exports.create = async function (req, res) {
         if (["SOLVED", "RETRY"].includes(req.body.status)) {
             req.body.lastsolved = new Date();
         }
-        console.log("date set", req.body);
+
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
@@ -105,12 +105,12 @@ module.exports.create = async function (req, res) {
 
         user.save();
 
-        if(req.xhr){
+        if (req.xhr) {
             return res.status(200).json({
-                data : {
-                    question : question
+                data: {
+                    question: question
                 },
-                message : "Question Added"
+                message: "Question Added"
             })
         }
 
