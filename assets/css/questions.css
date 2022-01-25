@@ -8,7 +8,7 @@ form{
 
 
 tr{
-  text-align: center;
+  
   padding: 0;
   margin: 0;
 }
@@ -31,21 +31,23 @@ border-radius: 50%;
 
 .widget-26 .widget-26-job-title {
   min-width: 200px;
-  
-
-}
-
-.widget-26 .widget-26-job-title a {
-  min-width: 270px;  
-  margin: 5px 0 5px 10px;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  text-decoration: none;
-    font-weight: 400;
-    max-width: 300px;
-  text-transform: capitalize;
-   
+  max-width: 300px;
+}
+
+.widget-26 .widget-26-job-title a {  
+  margin: 0;
+  padding: 0;
+  margin: 5px 2px; 
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: capitalize;  
+  width: 100%;
+  text-align: left;
+
     
 }
 

@@ -15,24 +15,6 @@
   
   }
 
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #002691; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
 
   .vh-65{
     min-height: 65vh !important;
