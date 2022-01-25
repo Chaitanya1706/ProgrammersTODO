@@ -87,11 +87,20 @@ module.exports.create = async function (req, res) {
 
         user.unsolved.push(question.id);
 
-        req.flash('success', 'New Question Added Successfully')
-
         user.save();
 
-        return res.redirect('/questions/add');
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    question : question
+                },
+                message : "Question Added"
+            })
+        }
+
+        // req.flash('success', 'New Question Added Successfully')
+
+        // return res.redirect('/questions/add');
 
     } catch (err) {
         req.flash('error', err);
