@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const questionStatus = ["UNSOLVED", "SOLVED", "RETRY"]
 const questSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -18,7 +18,8 @@ const questSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'UNSOLVED'
+        enum: questionStatus,
+        default: questionStatus[0]
     },
     lastsolved: {
         type: Date,

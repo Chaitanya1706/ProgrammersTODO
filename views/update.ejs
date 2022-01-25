@@ -5,15 +5,15 @@
             <div class="card-body">
                 <form action="/questions/update/<%= ques.id %> %>  " method="post">
                     <div class="col-md-12  mb-3">
-                        <label class="form-label" for="name">Question Name</label>
-                        <input class="form-control" type="text" name="name" id="name" value="<%= ques.name %>"
+                        <label class="text-black-50" for="name">Question Name</label>
+                        <input class="form-control p-2" type="text" name="name" id="name" value="<%= ques.name %>"
                             placeholder="Write question name" required>
 
                     </div>
                     <div class="col-md-12  mb-3">
 
-                        <label class="form-label" for="link">Question Link</label>
-                        <input class="form-control" type="url" name="link" id="link" value="<%= ques.link %> "
+                        <label class="text-black-50" for="link">Question Link</label>
+                        <input class="form-control p-2" type="url" name="link" id="link" value="<%= ques.link %> "
                             placeholder="Add question link here.." required>
 
                     </div>
@@ -23,8 +23,8 @@
 
                     <div class="row  mb-3">
                         <div class="col-md-6">
-                            <label for="status" class="form-label">Question Status </label>
-                            <select id="status" class="form-select" name="status" id="status">
+                            <label for="status" class="text-black-50">Question Status </label>
+                            <select id="status" class="form-select p-2" name="status" id="status">
                                 <option value="SOLVED" <%=ques.status==='SOLVED' && 'selected' %>>SOLVED</option>
                                 <option value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED</option>
                                 <option value="RETRY" <%=ques.status==='RETRY' && 'selected' %>>RETRY</option>
@@ -32,21 +32,23 @@
 
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label" for="deadline">Deadline </label>
-                            <input type="date" class="form-control" id="deadline" value="<%= ques.deadline %> "
+                            <label class="text-black-50" for="deadline">Deadline </label>
+                            <input type="date" class="form-control p-2" id="deadline" value="<%= ques.deadline %> "
                                 name="deadline">
                         </div>
                     </div>
                     <div class="col-md-12  mb-3">
-                        <label for="topic">Topic</label>
-                        <input type="text" id="topic" class="form-control" value="<%= ques.topic %> "
+                        <label class="text-black-50" for="topic">Topic</label>
+                        <input type="text" id="topic" class="form-control p-2" value="<%= ques.topic %> "
                             placeholder="Enter Category or Topic" name="topic">
                     </div>
 
                     <div class="col-md-12  mb-3">
 
-                        <label class="form-label" for="desc">Description (Optional)</label>
-                        <textarea class="form-control" name="description" id="desc"
+                        <label class="text-black-50" for="desc">Description (Optional)</label>
+                        <br>
+                        <small class="text-muted"> <mark>*</mark> Currently working on it</small>
+                        <textarea readonly class="form-control p-2" name="description" id="desc"
                             rows="<%- ques.description.length==0 ? 1 : 5%>"
                             placeholder="Question Description"><%= ques.description %></textarea>
 

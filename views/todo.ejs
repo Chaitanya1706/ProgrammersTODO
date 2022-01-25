@@ -3,45 +3,62 @@
 
 
 <div class="container mt-4">
-    <div class="row card">
-        <div class="card-block ">
+    <div class="shade">
+        <div class="blackboard">
             <div class="box box-aqua">
+
                 <div class="box-header d-flex flex-row">
                     <div class="todo">
-                        <i class="fa fa-clipboard"></i>
+                        <span class="fw-bold link-primary pl-3">
+                            <%= new Date().toDateString() %>
+                        </span>
+                    </div>
+                    <div>
                         <h3 class="d-inline box-title">Today Task List</h3>
                     </div>
-                    <span class="fw-bold link-primary">
-                        <%= new Date().toDateString() %>
-                    </span>
+
                     <div class="p-2">
                         <button class="btn btn-default text_blue btn-md">
                             <a id="pickrandom" class="text-decoration-none" target="_blank"
                                 href="/questions/todo?q=randompick">
                                 <i class="fas fa-random"></i>
-                                Pick Random
+
+                                <span class="hideforsm">
+                                    Pick Random
+                                </span>
+
                             </a>
+                        </button>
+                        <button onclick="openFullscreen()" id="fullscreen"
+                            class="btn btn-outline-light fullscreen hideforsm">
+
+                            <i class="fas fa-compress fa-2x" id="compress" style="display: none;"></i>
+
+                            <i class="fas fa-expand fa-2x" id="expand"></i>
+
+
                         </button>
                     </div>
 
                 </div>
+
                 <form action="/questions/todo/markdone" method="POST">
                     <div class="box-body">
                         <ul class="list-group list-group-numbered">
 
                             <% todo.forEach(function(item,i){%>
-                                <li class="list-group-item list-group-item-secondary">
+                                <li class="list-group-item checkbox list-group-item-light">
 
                                     <input class="form-check-input me-1" type="checkbox" id="todo-<%=i%>" name="mark[]"
                                         value="<%=item._id%>">
                                     <!-- <input type="checkbox" value="" name=""> -->
-                                    <a href="<%=item.link%>" class="text">
+                                    <a type="label" href="<%=item.link%>" class="text" target="_blank">
                                         <%=item.name%>
                                     </a>
                                     <small
-                                        class="badge <%- item.status=='UNSOLVED' ? 'bg-info' :item.status=='SOLVED' ? 'bg-success' : 'bg-danger'%>"><i
+                                        class="float-right <%- item.status=='UNSOLVED' ? 'text-info' :item.status=='SOLVED' ? 'text-success' : 'text-danger'%>"><i
                                             class="far fa-clock"></i>
-                                        <%= item.lastsolved ? moment(item.lastsolved).fromNow() : '--' %>
+                                        <%= item.lastsolved ? moment(item.lastsolved).fromNow() : 'Not Solved Yet' %>
                                     </small>
 
                                 </li>
@@ -53,23 +70,21 @@
 
                     <% if (todo.length!=0) { %>
 
-                        <div class="box-footer clearfix no-border">
-                            <button type="submit" class="btn btn-default">MarkDone</button>
+                        <div class="no-border box-footer ml-5" style="background-color:transparent;">
+                            <button type="submit" class="btn btn-default btn-sm">MarkDone</button>
                             <!-- d-flex justify-content-around float-right -->
+
                         </div>%>
 
 
                         <%} else { %>
-
-                            <div class="text_green_1 display-4  text-center"> No Work For Revision</div>
+                            <div class="text_green_1 display-5  text-center">😎 No Work For Revision 😎</div>
                             <% } %>
 
 
                 </form>
-
             </div>
         </div>
-
-
     </div>
 </div>
+<script src="/js/todo.js"></script>

@@ -16,17 +16,17 @@
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: transparent; 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #002691; 
   }
   
   /* Handle on hover */
@@ -39,7 +39,7 @@
   }
 
 body{
-    font-family: Roboto;
+    font-family: Roboto !important;
     position: relative;
 }
 
@@ -275,9 +275,7 @@ body{
   padding: 0%;
   margin: 0;
   margin-bottom: -2px;
-  margin-left: -1px;
-  
-  
+  margin-left: -1px;    
 }
 
 
@@ -294,3 +292,27 @@ body{
     color: #20247b;
 }
  
+
+mark {
+  font-weight: 600;
+  color: #20247b !important;
+
+  background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
+}
+
+.transparentbtn{
+  background-color: white;
+  box-shadow: none;
+}
+.transbtn:focus , .transbtn:active{
+  box-shadow:none !important;
+  outline:none;
+  -webkit-appearance: none;
+  
+}
