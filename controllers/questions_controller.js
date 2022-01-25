@@ -8,7 +8,7 @@ module.exports.todo = async function (req, res) {
         const user = await User.findById(req.user.id)
             .populate('questions')
 
-        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, Math.min(user.questions.length, 10));
+        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, Math.min(user.questions.length, 3));
 
         res.render('todo', {
             title: 'TODO',
