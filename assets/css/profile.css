@@ -1,4 +1,21 @@
+::-webkit-scrollbar {
+  width: 2px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white !important; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white !important; 
+}
 
 body{
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -13,8 +30,8 @@ body{
 }
 .emp-profile{
   padding: 3%;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 2px;
   border-radius: 0.5rem;
   background: #fff;
 }
