@@ -10,7 +10,7 @@
                 url : '/questions/create',
                 data : newQuestionForm.serialize(),
                 success : function(data){
-
+                    $('#clear').click();
                     new Noty({
                         theme: 'relax',
                         text: "New Question Added",
