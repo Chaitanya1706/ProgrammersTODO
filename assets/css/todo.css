@@ -1,48 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Walter+Turncoat&display=swap');  
 
-body{
-    background: linear-gradient(45deg,#FF5370,#ff869a);
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white !important; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: white !important; 
+  }
+body {
+    height: 100%;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg) center center fixed;
+    background-size: cover;
+    vertical-align: middle;
+    
 }
-.box.box-aqua {
-    border-top-color: #00c0ef !important;
+
+.shade {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
+    font-family: 'Walter Turncoat', cursive;    
+    color: rgba(238, 238, 238, 0.7);
 }
-.box.box-green {
-    border-top-color: #00a65a !important;
-}
-.box.box-success {
-    border-top-color: #3c8dbc;
-}
-.box {
+
+.blackboard {
     position: relative;
-    border-radius: 3px;
-    background: #ffffff;
-    border-top: 3px solid #d2d6de;
-    margin-bottom: 20px;
-    width: 100%;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    min-height: 70vh;
-    overflow-y: scroll;
+    width: 88vw;
+    min-height: 86vh;    
+    margin: 5.4% auto 0 auto;
+    border: tan solid 12px;
+    border-top: #bda27e solid 12px;
+    border-left: #b19876 solid 12px;
+    border-bottom: #c9ad86 solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
+    background-color: #333;
 }
-@media(max-width:700px){
-    .card-block{
-        margin: 0 !important;
-        padding: 0 !important;
+.hideforsm{
+    display: inline-block !important;
+    white-space: nowrap;
+}
+@media(max-width:900px){
+    .blackboard{
+        margin: 0px ;
+        margin-top: 17%;
+        width: 100vw;
+        height: 90vh;
+    }
+    .hideforsm{
+        display: none !important;        
     }
 }
-.box-header {
-    color: #444;        
+
+
+
+
+
+::-moz-selection {
+    background: rgba(238, 238, 238, 0.2);
+    color: rgba(238, 238, 238, 0.2);
+    text-shadow: none;
+}
+
+::selection {
+    background: #0e52c1;
+    color: white;
+    text-shadow: none;
+}
+
+.emptyboard{
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+}
+
+
+.box-header {     
     position: relative;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap;            
+    color: rgba(238, 238, 238, 0.7);
+    margin-top: 10px;
+
 }
 .box-header>.ion {
     margin-right: 5px;
 }
 .box-header .box-title {
     display: inline-block;
-    font-size: 18px;
+    font-size: 30px;
     margin: 0;
-    line-height: 1;
+    line-height: 1;    
+
 }
 .box-header>.box-tools {
     position: absolute;
@@ -52,12 +120,18 @@ body{
 .inline {
     display: inline;
 }
+
 .box-body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
     padding: 10px;
+    min-height: 63%;
+    max-height: 63%;
+    overflow-y: scroll;
+    font-family:  cursive !important;
+
 }
 .todo-list {
     margin: 0;
@@ -93,9 +167,11 @@ body{
     border-top-right-radius: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    border-top: 1px solid #f4f4f4;
+
     padding: 10px;
-    background-color: #fff;
+
+    display: flex;
+    justify-content: space-between;
 }
 .btn-default {
     background-color: #f4f4f4;
@@ -126,4 +202,17 @@ input[type=checkbox] {
 .text{
     margin-right: 20px;
     margin-left: 20px;
+}
+.fullscreen{
+    position: absolute; right: 14%;
+}
+@media(max-width: 900px){
+    .fullscreen{
+        position: absolute;
+         right: -2%;
+          top: -8%;          
+    }
+    .box-body{
+        min-height: 75%;
+    }
 }

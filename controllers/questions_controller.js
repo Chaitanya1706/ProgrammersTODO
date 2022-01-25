@@ -8,7 +8,7 @@ module.exports.todo = async function (req, res) {
         const user = await User.findById(req.user.id)
             .populate('questions')
 
-        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, Math.min(user.questions.length, 3));
+        const randomPick = user.questions.sort(() => Math.random() - Math.random()).slice(0, Math.min(user.questions.length, 10));
 
         res.render('todo', {
             title: 'TODO',
@@ -45,7 +45,7 @@ module.exports.markdone = async function (req, res) {
         console.log(q.status);
         if (q.status == 'SOLVED') {
             console.log("solve match");
-            await User.findByIdAndUpdate(req.user.id, { $pull: { solved: id }, $push: { solved: id } })
+            // await User.findByIdAndUpdate(req.user.id, { $pull: { solved: id }, $push: { solved: id } })
         }
         else if (q.status == 'UNSOLVED') {
             console.log("unsolved match");
@@ -62,7 +62,7 @@ module.exports.markdone = async function (req, res) {
 
     })
 
-    return res.redirect('/questions/todo');
+    return res.redirect('back');
 
 }
 
