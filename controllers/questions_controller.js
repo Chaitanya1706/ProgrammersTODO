@@ -84,7 +84,6 @@ module.exports.create = async function (req, res) {
         if (["SOLVED", "RETRY"].includes(req.body.status)) {
             req.body.lastsolved = new Date();
         }
-        // console.log("date set", req.body);
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
@@ -105,12 +104,12 @@ module.exports.create = async function (req, res) {
 
         user.save();
 
-        if(req.xhr){
+        if (req.xhr) {
             return res.status(200).json({
-                data : {
-                    question : question
+                data: {
+                    question: question
                 },
-                message : "Question Added"
+                message: "Question Added"
             })
         }
 
@@ -185,7 +184,7 @@ module.exports.update = async function (req, res) {
         const question = await Question.findById(req.params.id);
 
             const user = await User.findById(req.user.id);
-
+            
             if (question.status == 'SOLVED') {
                 await User.findByIdAndUpdate(req.user.id, { $pull: { solved: req.params.id } })
             }
