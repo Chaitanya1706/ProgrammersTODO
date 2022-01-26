@@ -19,7 +19,8 @@ module.exports.search = async function (req, res) {
                     res.send("500 Internal Error")
                 }
                 return res.render('list', {
-                    title: 'search | ' + search,
+                    title: search + '| search',
+                    search: search,
                     page_name: 'search',
                     questions: data || [],
                     moment: moment

@@ -30,9 +30,7 @@ body{
 }
 .emp-profile{
   padding: 3%;
-  margin-top: 5px;
-  margin-bottom: 2px;
-  border-radius: 0.5rem;
+  height: calc(100vh - 61px);
   background: #fff;
 }
 
