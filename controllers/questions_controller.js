@@ -84,7 +84,7 @@ module.exports.create = async function (req, res) {
         if (["SOLVED", "RETRY"].includes(req.body.status)) {
             req.body.lastsolved = new Date();
         }
-        console.log("date set", req.body);
+        // console.log("date set", req.body);
         const question = await Question.create(req.body)
 
         const user = await User.findById(req.user.id);
@@ -99,7 +99,7 @@ module.exports.create = async function (req, res) {
         }
         user.questions.push(question.id);
 
-        req.flash('success', 'New Question Added Successfully')
+        // req.flash('success', 'New Question Added Successfully')
         // console.log(user);
         // console.log(question);
 
@@ -172,16 +172,18 @@ module.exports.updateQuestion = async function (req, res) {
             title: 'Update Question',
             ques: ques
         })
+
+
     } catch (err) {
         console.log('ERROR!!', err);
     }
 }
 
 module.exports.update = async function (req, res) {
-    try {
+    try {   
+        
         const question = await Question.findById(req.params.id);
 
-        if (question.status !== req.body.status) {
             const user = await User.findById(req.user.id);
 
             if (question.status == 'SOLVED') {
@@ -204,9 +206,19 @@ module.exports.update = async function (req, res) {
             }
             user.save();
             req.body.lastsolved = new Date()
-        }
+    
         req.body.userid = req.user._id
         await Question.findByIdAndUpdate(req.params.id, req.body);
+
+        if(req.xhr){
+            
+            return res.status(200).json({
+                data : {
+                    question : question
+                },
+                message : "Question Updated"
+            })
+        }
 
         req.flash('success', 'Question Updated Successfully');
 

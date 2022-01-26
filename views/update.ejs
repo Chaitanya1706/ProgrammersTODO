@@ -3,7 +3,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-lg-7 col-sm-11 card required">
             <div class="card-body">
-                <form action="/questions/update/<%= ques.id %> %>  " method="post">
+                <form action="/questions/update/<%= ques.id %> %>  " method="post" id="update-question-form">
                     <div class="col-md-12  mb-3">
                         <label class="text-black-50" for="name">Question Name</label>
                         <input class="form-control p-2" type="text" name="name" id="name" value="<%= ques.name %>"
@@ -60,7 +60,7 @@
                             <input type="submit" value="Update Question" id="submit" name="submit"
                                 class="btn btn-primary">
 
-                            <a href="/questions/view" type="reset" id="clear" name="clear" class="btn btn-secondary">
+                            <a href="/questions/view" id="clear" name="clear" class="btn btn-secondary">
                                 Cancel
                             </a>
                         </div>
@@ -75,3 +75,4 @@
 
     </div>
     <script src="/js/update.js"></script>
+    <script src="/js/ajax/update_question.js"></script>
