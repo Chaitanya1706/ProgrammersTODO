@@ -1,7 +1,21 @@
 <link rel="stylesheet" href="/css/addquestion.css">
 <div class="container mt-lg-3 mt-sm-2">
     <div class="row d-flex justify-content-center">
+        <div class="col-lg-7 col-sm-11">
+
+            <p class="note note-secondary">
+                <strong>Update info:</strong>
+
+                If Question Status Is Changed From Current Status Then, It Will be Considered As Last Solved
+
+
+            </p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+
         <div class="col-lg-7 col-sm-11 card required">
+
             <div class="card-body">
                 <form action="/questions/update/<%= ques.id %> %>  " method="post">
                     <div class="col-md-12  mb-3">
@@ -26,8 +40,9 @@
                             <label for="status" class="text-black-50">Question Status </label>
                             <select id="status" class="form-select p-2" name="status" id="status">
                                 <option value="SOLVED" <%=ques.status==='SOLVED' && 'selected' %>>SOLVED</option>
-                                <option value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED</option>
                                 <option value="RETRY" <%=ques.status==='RETRY' && 'selected' %>>RETRY</option>
+                                <option disabled value="UNSOLVED" <%=ques.status==='UNSOLVED' && 'selected' %>>UNSOLVED
+                                </option>
                             </select>
 
                         </div>
