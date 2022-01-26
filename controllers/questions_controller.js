@@ -183,8 +183,9 @@ module.exports.update = async function (req, res) {
         
         const question = await Question.findById(req.params.id);
 
+        if (question.status !== req.body.status) {
             const user = await User.findById(req.user.id);
-            
+
             if (question.status == 'SOLVED') {
                 await User.findByIdAndUpdate(req.user.id, { $pull: { solved: req.params.id } })
             }
@@ -205,6 +206,7 @@ module.exports.update = async function (req, res) {
             }
             user.save();
             req.body.lastsolved = new Date()
+        }
     
         req.body.userid = req.user._id
         await Question.findByIdAndUpdate(req.params.id, req.body);
