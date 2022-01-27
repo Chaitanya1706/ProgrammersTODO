@@ -2,8 +2,8 @@
 
 
 
-<div class="container mt-0">
-    <div class="shade">
+<div class="container mt-4">
+    <div class="shade d-flex">
         <div class="blackboard">
             <div class="box box-aqua">
                 <div class="box-header d-flex flex-row">
@@ -62,7 +62,12 @@
 
                                 </li>
                                 <%})%>
-
+                                    <% if (todo.length==0) { %>
+                                        <div class="text_green_1 display-5  text-center">
+                                            <p>😎 No Work For Revision 😎</p>
+                                            <p class="text-muted display-6">Pick Random Questions For Revision</p>
+                                        </div>
+                                        <%} %>
                         </ul>
                     </div>
 
@@ -76,14 +81,16 @@
                         </div>%>
 
 
-                        <%} else { %>
-                            <div class="text_green_1 display-5  text-center">😎 No Work For Revision 😎</div>
-                            <% } %>
+                        <%} %>
+
+
 
 
                 </form>
             </div>
         </div>
+        <img src="/img/tutor.png" alt="" srcset="" width="220" height="300"
+            class="mt-5 pt-5 position-absolute hideforsm" style="right: 20px; bottom: 0px;">
     </div>
 </div>
 <script src="/js/todo.js"></script>
