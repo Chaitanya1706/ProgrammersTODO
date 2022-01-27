@@ -2,10 +2,10 @@ const express = require('express');
 const port = process.env.PORT || 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
-const db = require('./config/mongoose')
 if (process.env.NODE_ENV != "production") {
     require('dotenv').config();
 }
+const db = require('./config/mongoose')
 
 const bodyParser = require("body-parser");
 // to parse the body into json format
@@ -57,6 +57,7 @@ app.set('views', './views');
 // setting up passport with local startegy
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser)  // middleware to access the authenticated user from locals for views

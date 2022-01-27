@@ -17,7 +17,9 @@ module.exports.home = async function (req, res) {
         
         const user = await User.findById(req.user.id)
         .populate('profile')
-        // console.log("*******////****",user);
+
+        console.log("*******////****",user);
+        
         return res.render('user_profile', {
             title: 'Home',
             page_name: 'profile',
