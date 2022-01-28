@@ -14,12 +14,12 @@ module.exports.home = async function (req, res) {
         return res.redirect('/users/signin');
     }
     else {
-        
-        const user = await User.findById(req.user.id)
-        .populate('profile')
 
-        console.log("*******////****",user);
-        
+        const user = await User.findById(req.user.id)
+            .populate('profile')
+
+        // console.log("*******////****",user);
+
         return res.render('user_profile', {
             title: 'Home',
             page_name: 'profile',
@@ -29,13 +29,13 @@ module.exports.home = async function (req, res) {
 
 }
 
-module.exports.about = async function(req,res){
-    try{
-        return res.render('about',{
-            title : 'About',
-            page_name : 'about'
+module.exports.about = async function (req, res) {
+    try {
+        return res.render('about', {
+            title: 'About',
+            page_name: 'about'
         })
-    }catch(err){
-        req.flash('error',err)
+    } catch (err) {
+        req.flash('error', err)
     }
 }
