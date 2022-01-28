@@ -1,11 +1,13 @@
+if (process.env.NODE_ENV != "production") {
+    require('dotenv').config();
+}
 const express = require('express');
 const port = process.env.PORT || 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
+
+
 const db = require('./config/mongoose')
-if (process.env.NODE_ENV != "production") {
-    require('dotenv').config();
-}
 
 const bodyParser = require("body-parser");
 // to parse the body into json format
@@ -27,7 +29,7 @@ const MongoStrore = require('connect-mongo');
 
 app.use(session({
     name: 'TODO',
-    secret: 'secretkeytobechanged',
+    secret: process.env.secret,
     saveUninitialized: false,
     resave: false,
     cookie: {
@@ -35,7 +37,7 @@ app.use(session({
     },
     store: MongoStrore.create(
         {
-            mongoUrl: 'mongodb+srv://Chats:wkTnlxjfJG9dmxTP@cluster0.mxmxr.mongodb.net/ProgrammersTODO?retryWrites=true&w=majority',
+            mongoUrl: process.env.mogourl,
             autoRemove: 'disabled'
         },
         function (err) {
