@@ -5,32 +5,33 @@ const User = require('../models/user');
 const Profile = require('../models/profile');
 
 //tell passport to use a new Strategy for google login
+console.log(`${process.env.FRONTEND_URL}users/auth/google/callback`);
 passport.use(new googleStrategy({
-        clientID : process.env.GOOGLE_CLIENT_ID,
-        clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL : "http://localhost:8000/users/auth/google/callback"
-    },
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: `${process.env.FRONTEND_URL}users/auth/google/callback`
+},
 
-    async function(accessToken, refreshToken, profile, done){
-        try{
+    async function (accessToken, refreshToken, profile, done) {
+        try {
             //find a user
-            const user = await User.findOne({email: profile.emails[0].value});
+            const user = await User.findOne({ email: profile.emails[0].value });
 
-            console.log("****",profile);
+            console.log("****", profile);
 
-            if(user){
+            if (user) {
                 // if found set this user as req.user
-                return done(null,user);
+                return done(null, user);
             }
-            else{
+            else {
                 // if not found, create the user and set it as req.user
                 const newUser = await User.create({
                     username: profile.displayName,
                     email: profile.emails[0].value,
                     password: crypto.randomBytes(20).toString('hex')
-                }) 
+                })
 
-                console.log("photo***",profile.photos[0].value)
+                console.log("photo***", profile.photos[0].value)
 
                 const prof = await Profile.create({
                     user: newUser.id,
@@ -39,9 +40,9 @@ passport.use(new googleStrategy({
 
                 newUser.profile = prof._id;
                 newUser.save();
-                return done(null,newUser);
+                return done(null, newUser);
             }
-        }catch(err){
+        } catch (err) {
             console.log('Error from Google OAuth', err);
             return;
         }

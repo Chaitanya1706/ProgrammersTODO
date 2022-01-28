@@ -1,12 +1,14 @@
 let emailinput = document.getElementById('email')
 let passwordinput = document.getElementById('password')
 emailinput.focus();
+
+
 function guestLogin() {
     let email = "guestuser@gmail.com";
     let index = 0;
     const loginForm = document.forms[0];
-    let emailinput = document.getElementById('email')
-    let passwordinput = document.getElementById('password')
+
+
     emailinput.value = ""
     passwordinput.value = ""
 
