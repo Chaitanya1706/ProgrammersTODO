@@ -85,6 +85,7 @@ module.exports.signin = function (req, res) {
 module.exports.create = async function (req, res) {
     // console.log(req.body);
     if (req.body.password != req.body.confirm_password) {
+        req.flash('error', 'Password Mismatch')
         return res.redirect('back');
     }
     // console.log(req.body);
