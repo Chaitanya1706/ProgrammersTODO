@@ -1,65 +1,87 @@
-<!-- <h1>SignIn</h1>
-
-<form action="/users/create-session" method="post">
-    <input type="email" placeholder="abc@gmail.com" required name="email" id="email">
-    <input type="password" placeholder="password" required name="password" id="password">
-    <button type="submit">SigIn</button>
-</form> -->
 <link rel="stylesheet" href="/css/login.css">
 
-<div class="container">
-    <!-- code here -->
-    <div class="card mt-4">
-        <div class="card-image">
-            <h2 class="card-heading">
-                Get started
-                <small>Lets get Started</small>
-            </h2>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form id="loginForm" class="card-form" action="/users/create-session" method="post">
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+
+
+                        <a class="btn btn-lg btn-block btn-google btn-block" href="/users/auth/google" role="button">
+                            Continue with Google
+                        </a>
+                    </div>
+
+                    <div class="or-container">
+                        <div class="line-separator"></div>
+                        <div class="or-label">or</div>
+                        <div class="line-separator"></div>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input type="email" required name="email" id="email" class="form-control"
+                                autocomplete="false" />
+                            <label class="form-label" for="email">Your Email</label>
+                        </div>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input type="password" required name="password" id="password" class="form-control" />
+                            <label class="form-label" for="password">Password</label>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center text-lg-start ml-lg-5 mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg w-50"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+
+                        <button type="button" class="btn btn-outline-primary btn-lg"
+                            style="padding-left: 1.5rem; padding-right: 1.5rem;" onclick="guestLogin()">GuestLogin
+                        </button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/users/signup"
+                                class="link-danger">Register</a></p>
+                    </div>
+
+                </form>
+            </div>
         </div>
-
-
-        <form id="loginForm" class="card-form" action="/users/create-session" method="post">
-            <div class="input">
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="email"
-                    class="input-field" required name="email" id="email">
-
-                <label class="input-label">Email</label>
-
-            </div>
-
-
-            <div class="input">
-
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="password"
-                    class="input-field" required name="password" id="password" minlength="5">
-
-
-                <label class="input-label">Password</label>
-            </div>
-
-            <div class="action">
-                <button type="button" class="btn btn-outline-primary my-2 w-100 btn-lg" onclick="guestLogin()">Guest
-                    Login</button>
-
-                <button type="submit" form="loginForm" class="action-button">Get started
-
-                    <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
-            <p>
-                <a href="/users/auth/google">Google SignIn/SignOut</a>
-            </p>
-            <p class="text-muted mt-4 fw-bold">
-                Don't have an account ?
-                <a href="/users/signup" class=""> Register </a>
-            </p>
-        </form>
-
     </div>
+    <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+            Copyright © 2022. All rights reserved.
+        </div>
+        <!-- Copyright -->
 
-</div>
-
+        <!-- Right -->
+        <div>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="#!" class="text-white">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        <!-- Right -->
+    </div>
+</section>
 <script src="/js/login.js"></script>
-<!-- https://www.javascripttutorial.net/javascript-dom/javascript-form/ -->

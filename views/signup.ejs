@@ -1,98 +1,103 @@
-<link rel="stylesheet" href="/css/login.css">
+<section class="min-vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                                <form action="/users/create" method="post" id="signup">
 
 
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" required name="username" id="username"
+                                                class="form-control" />
+                                            <label class="form-label" for="username">Your Name</label>
+                                        </div>
+                                    </div>
 
-<link rel="stylesheet" href="/css/login.css">
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" required name="email" id="email" class="form-control" />
+                                            <label class="form-label" for="email">Your Email</label>
+                                        </div>
+                                    </div>
 
-<div class="container">
-    <!-- code here -->
-    <div class="card mt-lg-2 mt-sm-1">
-        <div class="card-image">
-            <h2 class="card-heading">
-                Get started
-                <small>Let's create your account</small>
-            </h2>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" required name="password" id="password"
+                                                class="form-control" />
+                                            <label class="form-label" for="password">Password</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" required name="confirm_password" id="confirmpassword"
+                                                class="form-control" />
+                                            <label class="form-label" for="confirmpassword">Repeat your password</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check d-flex justify-content-center mb-5">
+                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                            id="form2Example3c" />
+                                        <label class="form-check-label" for="form2Example3">
+                                            I agree all statements in <a href="../about">Terms of service</a>
+                                        </label>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                    class="img-fluid" alt="Sample image">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <form action="/users/create" method="post" id="signup">
-
-            <div class="input">
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="text"
-                    class="input-field" required name="username" id="username">
-
-
-                <label class="input-label">UserName</label>
-            </div>
-            <small></small>
-            <div class="input">
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="email"
-                    class="input-field" required name="email" id="email">
-
-
-                <label class="input-label">Email</label>
-            </div>
-            <small></small>
-
-            <div class="input">
-
-                <input type="text" class="input-field" required name="education" list="education">
-                <label class="input-label">Education</label>
-                <datalist id="education" style="max-height: 90px;">
-                    <option value="1st sem, 1st year, B.Tech">
-                    <option value="2nd sem, 1st year, B.Tech">
-                    <option value="3rd sem, 2nd year, B.Tech">
-                    <option value="4th sem, 2nd year, B.Tech">
-                    <option value="5th sem, 3rd year, B.Tech">
-                    <option value="6th sem, 3rd year, B.Tech">
-                    <option value="7th sem, 4th year, B.Tech">
-                    <option value="8th sem, 4th year, B.Tech">
-
-
-                </datalist>
-
-
-
-            </div>
-            <small></small>
-
-
-
-            <div class="input">
-
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="password"
-                    class="input-field" required name="password" id="password">
-
-
-                <label class="input-label">Password</label>
-            </div>
-            <small></small>
-
-            <div class="input">
-
-
-                <input autocomplete="false" readonly onfocus="this.removeAttribute('readonly');" type="password"
-                    class="input-field" required name="confirm_password" id="password">
-
-
-                <label class="input-label">Confirm Password</label>
-            </div>
-            <small></small>
-
-
-            <div class="action">
-                <button class="action-button">Sign Up</button>
-
-            </div>
-            <p class="text-muted fw-bold mt-4">
-                Already have an account ?
-                <a href="/users/signin" class=""> Login </a>
-            </p>
-            <p>
-                <a href="/users/auth/google">Google SignIn/SignOut</a>
-            </p>
-        </form>
-
     </div>
-</div>
+    <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between mt-5 py-4 px-4 px-xl-5 bg-primary footersignup">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0 mt-5 mt-lg-0">
+            Copyright © 2022. All rights reserved.
+        </div>
+        <!-- Copyright -->
+
+        <!-- Right -->
+        <div>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#!" class="text-white me-4">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="#!" class="text-white">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        <!-- Right -->
+    </div>
+</section>
