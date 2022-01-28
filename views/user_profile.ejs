@@ -4,9 +4,10 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-<div class="container emp-profile section about-section">
+
+<div class="container emp-profile section about-section card text-black" style="border-radius: 25px;">
     <!-- <form method="post"> -->
-    <div class="row">
+    <div class="row card-body p-md-5">
         <div class="col-lg-4 col-sm-12">
             <div class="profile-img">
                 <img src="<%- profile_user.profile?.img?.filepath    || '/img/unknown_user.png' %>" alt="" class=""
@@ -57,23 +58,19 @@
                             <%- profile_user.profile.bio%>
                         </p>
                         <%}else{%>
-
                             <p class="text-muted">
                                 Complete Your Profile By Clicking Edit Button </p>
                             <%}%>
-
             </div>
         </div>
-
     </div>
-    <div class="row mt-5">
+    <div class="row card-body p-md-5">
         <div class="col-xl-3 col-sm-6 col-12 mb-4">
             <a type="button" href="/questions/view" class="card text-decoration-none text-dark">
                 <div class="card-body">
                     <div class="d-flex justify-content-between px-md-1">
                         <div class="align-self-center">
                             <i class="fas fa-list-ol text-info fa-3x"></i>
-
                         </div>
                         <div class="text-end">
                             <h3>
@@ -91,7 +88,6 @@
                     <div class="d-flex justify-content-between px-md-1">
                         <div class="align-self-center">
                             <i class="fas fa-chart-line text-success fa-3x"></i>
-
                         </div>
                         <div class="text-end">
                             <h3>
@@ -113,7 +109,6 @@
                         <div class="text-end">
                             <h3>
                                 <%=profile_user.unsolved.length%>
-
                             </h3>
                             <p class="mb-0">UnSolved</p>
                         </div>
@@ -126,8 +121,6 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between px-md-1">
                         <div class="align-self-center">
-
-
                             <i class="fas fa-sync-alt text-danger fa-3x"></i>
                         </div>
                         <div class="text-end">
@@ -141,10 +134,6 @@
             </a>
         </div>
     </div>
-
-
-
-
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
@@ -159,50 +148,36 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Name</label>
-
                         <input type="text" class="form-control item" id="username" name="username"
                             placeholder="Username" value="<%= profile_user.username %>" readonly>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Education</label>
-
                         <input type="text" class="form-control item" id="Education" name="education"
                             value="<%= profile_user.profile.education %> " placeholder="Education">
                     </div>
-
                     <div class="form-group">
                         <label class="form-label">Website</label>
-
                         <input type="url" class="form-control item" id="website" name="website"
                             value="<%= profile_user.profile.website %> " placeholder="url">
                     </div>
-
                     <div class="form-group">
                         <label class="form-label">Bio</label>
-
                         <textarea class="form-control item" id="bio" name="bio" placeholder="Describe yourself here..."
                             <%- profile_user._id=='61ebb6594590e3df4eece8f2' ?'readonly':'' %>
                     ><%= profile_user.profile.bio%></textarea>
                     </div>
-
                     <div class="form-group" id="upload">
                         <!-- <input type="file" class="form-control item" name="image" id="upload-Images" single> -->
                         <label class="form-label">Upload Profile Photo</label>
                         <input name="image" type="file" class="form-control" id="customFile">
-
                     </div>
-
                     <div class="form-group">
                         <button type="submit" class="btn btn-block create-account">Update</button>
                     </div>
-
                 </div>
-
             </form>
-
         </div>
     </div>
 </div>
-
-
 <script src="/js/userprofile.js"></script>

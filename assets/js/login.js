@@ -1,10 +1,15 @@
-
+let emailinput = document.getElementById('email')
+let passwordinput = document.getElementById('password')
+emailinput.focus();
 function guestLogin() {
     let email = "guestuser@gmail.com";
     let index = 0;
     const loginForm = document.forms[0];
     let emailinput = document.getElementById('email')
     let passwordinput = document.getElementById('password')
+    emailinput.value = ""
+    passwordinput.value = ""
+
     emailinput.focus();
 
     const myInterval = setInterval(myTimer, 60);
@@ -18,6 +23,7 @@ function guestLogin() {
             clearInterval(myInterval)
             passwordinput.focus();
             passwordinput.value = "12345";
+            emailinput.focus();
             loginForm.submit()
         }
     }

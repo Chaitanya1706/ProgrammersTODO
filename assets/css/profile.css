@@ -31,9 +31,7 @@ body{
 .emp-profile{
   padding: 3%;
   margin-top: 5px;
-  margin-bottom: 2px;
-  border-radius: 0.5rem;
-  background: #fff;
+  margin-bottom: 2px;    
 }
 
 .profile-img{

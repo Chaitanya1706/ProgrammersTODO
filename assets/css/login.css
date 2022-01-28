@@ -1,134 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
- *, *:after, *:before {
-	 box-sizing: border-box;
-}
- body {
-	 font-family: "DM Sans", sans-serif;
-	 line-height: 1.5;
-	 background-color: #f1f3fb;
-	 
-}
- img {
-	 max-width: 100%;
-	 display: block;
-}
- input {
-	 appearance: none;
-	 border-radius: 0;
-}
- .card {
-	 margin: 0rem auto;
-	 display: flex;
-	 flex-direction: column;
-	 width: 100%;
-	 max-width: 425px;
-	 background-color: #fff;
-	 border-radius: 10px;
-	 box-shadow: 0 10px 20px 0 rgba(153, 153, 153, .25);
-	 padding: 0.75rem;
-}
- .card-image {
-	 border-radius: 8px;
-	 overflow: hidden;
-	 padding-bottom: 55%;	
-	 background-image: url('/img/signin.png');
-	 background-repeat: no-repeat;
-	 background-size: 120%;
-	 background-position: 27% 32%;
-	 position: relative;
-}
- .card-heading {
-	 position: absolute;
-	 left: 1%;
-	 top: 13%;
-	 right: 10%;
-	 font-size: 1.75rem;
-	 font-weight: 700;
-	 color: #735400;
-	 line-height: 1.222;
-}
- .card-heading small {
-	 display: block;
-	 font-size: 0.75em;
-	 font-weight: 400;
-	 margin-top: 0.25em;
-}
- .card-form {
-	 padding: 2rem 1rem 0;
-}
- .input {
-	 display: flex;
-	 flex-direction: column-reverse;
-	 position: relative;
-	 padding-top: 1.5rem;
-}
- .input + .input {
-	 margin-top: 1.5rem;
-}
- .input-label {
-	 color: #8597a3;
-	 position: absolute;
-	 top: 1.5rem;
-	 transition: 0.25s ease;
-}
- .input-field {
-	 border: 0;
-	 z-index: 1;
-	 background-color: transparent;
-	 border-bottom: 2px solid #eee;
-	 font: inherit;
-	 font-size: 1.125rem;
-	 padding: 0.25rem 0;
-	 animation: typing 3.5s steps(30, end);
-}
-@keyframes typing {
-    from {
-        width: 0
-    }
-    to {
-        width: 100%
-    }
-}
- .input-field:focus, .input-field:valid {
-	 outline: 0;
-	 border-bottom-color: #6658d3;
-}
- .input-field:focus + .input-label, .input-field:valid + .input-label {
-	 color: #6658d3;
-	 transform: translateY(-1.5rem);
-}
- .action {
-	 margin-top: 2rem;
-}
- .action-button {
-	 font: inherit;
-	 font-size: 1.25rem;
-	 padding: 1em;
-	 width: 100%;
-	 font-weight: 500;
-	 background-color: #6658d3;
-	 border-radius: 6px;
-	 color: #fff;
-	 border: 0;
-}
- .action-button:focus {
-	 outline: 0;
-}
- .card-info {
-	 padding: 1rem 1rem;
-	 text-align: center;
-	 font-size: 0.875rem;
-	 color: #8597a3;
-}
- .card-info a {
-	 display: block;
-	 color: #6658d3;
-	 text-decoration: none;
-}
- 
 
-@media(max-width:700px){
-	.card-heading small{
-		display: none;
-	}
+
+
+.btn-google {
+    color: #545454;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 1px #ddd;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: 30px 16px;
+	padding-left: 20px;
+}
+
+.or-container {
+    align-items: center;
+    color: #ccc;
+    display: flex;
+    margin: 25px 0
+}
+
+.line-separator {
+    background-color: #ccc;
+    flex-grow: 5;
+    height: 1px
+}
+
+.or-label {
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: center
+}	
+
+.footersignup{
+	margin-top: 80px !important;
 }
