@@ -73,10 +73,10 @@
                                 <div class="result-header">
                                     <div class="row">
                                         <div class="col-lg-9">
-                                            <div class="records">Showing question: <b>1- <%=questions.length%></b> of
-                                                <b>
+                                            <div class="records">Total questions: <h6 class="d-inline h6">
                                                     <%=questions.length%>
-                                                </b> result
+                                                </h6>
+
                                             </div>
                                         </div>
                                         <div class="col-lg-3 d-flex justify-content-end">
@@ -105,6 +105,7 @@
                                     <table class="table widget-26 table-hover table-borderless table-sm">
                                         <thead>
                                             <tr>
+                                                <th scope="col">#</th>
                                                 <th scope="col">Question Name</th>
                                                 <th scope="col">Related Topic</th>
                                                 <th scope="col">Last Solve</th>
@@ -115,21 +116,24 @@
                                         </thead>
                                         <tbody>
 
-                                            <% for(ques of questions){ %>
+                                            <% for(let i=0;i<questions.length;i++){ %>
 
                                                 <tr>
                                                     <td>
+                                                        <%-i+1%>
+                                                    </td>
+                                                    <td>
                                                         <div class="widget-26-job-title">
-                                                            <a class="link-primary" href="<%= ques.link %> "
+                                                            <a class="link-primary" href="<%= questions[i].link %> "
                                                                 target="_blank">
-                                                                <%= ques.name %>
+                                                                <%= questions[i].name %>
                                                             </a>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-info">
                                                             <p class="type m-0">
-                                                                <%= ques.topic || "---" %>
+                                                                <%= questions[i].topic || "---" %>
                                                             </p>
 
                                                         </div>
@@ -139,29 +143,31 @@
                                                             <small class="bg-c-green p-1 rounded fw-bold"
                                                                 style="white-space: nowrap;">
                                                                 <i class="far fa-clock"></i>
-                                                                <%= ques.lastsolved ? moment(ques.lastsolved).fromNow()
-                                                                    : '----' %>
+                                                                <%= questions[i].lastsolved ?
+                                                                    moment(questions[i].lastsolved).fromNow() : '----'
+                                                                    %>
                                                             </small>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-salary">
                                                             <p class=""><i class="fa fa-clock-o"></i>
-                                                                <%= moment(ques.deadline).format("DD/MM/YYYY") %>
+                                                                <%= moment(questions[i].deadline).format("DD/MM/YYYY")
+                                                                    %>
                                                             </p>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="widget-26-job-category  <%- ques.status=='UNSOLVED' ? 'unsolved' :
-                                                                ques.status=='SOLVED' ? 'solved' : 'retry'
+                                                        <div class="widget-26-job-category  <%- questions[i].status=='UNSOLVED' ? 'unsolved' :
+                                                                questions[i].status=='SOLVED' ? 'solved' : 'retry'
                                                                 %>">
                                                             <i class="indicator 
-                                                                <%- ques.status=='UNSOLVED' ? 'bg-primary' :
-                                                                ques.status=='SOLVED' ? 'bg-success' : 'bg-danger'
+                                                                <%- questions[i].status=='UNSOLVED' ? 'bg-primary' :
+                                                                questions[i].status=='SOLVED' ? 'bg-success' : 'bg-danger'
                                                                 %>">
                                                             </i>
                                                             <span>
-                                                                <%= ques.status || "---" %>
+                                                                <%= questions[i].status || "---" %>
                                                             </span>
                                                         </div>
                                                     </td>
@@ -171,10 +177,10 @@
                                                                 <i class="far fa-star"></i>
                                                             </a> -->
 
-                                                            <a href="/questions/update/<%= ques.id %>"><i
+                                                            <a href="/questions/update/<%= questions[i].id %>"><i
                                                                     class="fa fa-edit"></i></a>
-                                                            <a href="/questions/delete/<%= ques.id %>">
-                                                                <i class="far fa-trash-alt"></i></a>
+                                                            <a href="/questions/delete/<%= questions[i].id %>"><i
+                                                                    class="far fa-trash-alt"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
