@@ -128,8 +128,12 @@ module.exports.create = async function (req, res) {
 module.exports.viewList = async function (req, res) {
     try {
         // const question = await Question.find({})
+        const options = { sort: { 'deadline': 'asc' } }
         const user = await User.findById(req.user.id)
-            .populate('questions').select("-password")
+            .populate({
+                path: 'questions',
+                options
+            }).select("-password")
 
         return res.render('list', {
             title: 'List',
